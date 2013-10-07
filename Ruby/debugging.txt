@@ -1,0 +1,10 @@
+From http://stackoverflow.com/questions/3955688/how-do-i-debug-ruby-scripts
+
+0.  STDERR.puts x.to_s
+
+1.  STDERR.puts x.inspect
+    or
+    STDERR.puts "Variable x is #{x.inspect}"
+
+2.  Turn warnings on. If you're running ruby then run it with the -w switch
+    (eg ruby -w script.rb).
