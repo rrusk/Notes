@@ -94,6 +94,7 @@ The MongoDB shell provides create, read, update and delete operations through Ja
     db.crud.find({username: "rrusk"})
     db.crud.remove()
     show collections
+    #drop collection x using db.x.drop()
     show dbs
     use crud
     db.dropDatabase()

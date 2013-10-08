@@ -1,0 +1,35 @@
+0) To install tshark on Ubuntu:
+
+sudo apt-get update; sudo apt-get install tshark
+
+1) To list available interfaces:
+
+sudo tshark -D
+
+2) Capture on interface 2
+
+sudo tshark -i 2
+
+3) Capture traffic for 10 seconds on interface 2
+
+sudo tshark -i 2 -a duration:10 -w /tmp/output.pcap
+
+4) Capture 100 packets on interface 2
+
+sudo tshark -c 100 -i 2 -w /tmp/output2.pcap
+
+5) Display traffic on localhost port 10303:
+
+sudo tshark -i lo -R "ip.addr == 127.0.0.1 and tcp.port == 10303"
+
+6) Display http traffic on localhost port 10303:
+
+sudo tshark -i lo -R "ip.addr == 127.0.0.1 and tcp.port == 10303" -d tcp.port=10303,http
+
+7) Capture http traffic on localhost port 10303:
+
+sudo tshark -i lo -f "host 127.0.0.1 and port 10303" -d tcp.port=10303,http
+
+8) Capture HTTP GET requests on localhost:10303
+
+sudo tshark -i lo -f "host 127.0.0.1 and port 10303 and tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420" -d tcp.port=10303,http
