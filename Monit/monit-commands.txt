@@ -41,3 +41,4 @@ $ sudo monit status
 
 $ sudo monit monitor query-composer
 
+7) Use /var/log/monit.log to troubleshoot monit.
