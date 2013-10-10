@@ -20,7 +20,8 @@ allow localhost
 
 3) Setup services to monitor by adding scripts to /etc/monit/conf.d
 
-For instance, an autossh script for setting up reverse ssh service might look like this:
+For instance, an autossh monit script for setting up reverse ssh service
+might look like this:
 
 # Monitor autossh_admin
 check process autossh_admin with pidfile /usr/local/reverse_ssh/autossh_admin.pid
@@ -38,7 +39,8 @@ $ sudo monit summary
 $ sudo monit status
 
 6) Start monitoring a service that isn't currently being monitored
+and has been setup in /etc/monit/conf.d/service2run
 
-$ sudo monit monitor query-composer
+$ sudo monit monitor service2run
 
 7) Use /var/log/monit.log to troubleshoot monit.
