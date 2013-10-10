@@ -1,0 +1,43 @@
+0) Install monit in Ubuntu 12.04 using:
+
+$ sudo apt-get install monit
+
+1) Get help on monit
+
+$ monit -h
+
+or
+
+$ man monit
+
+2) Configure monit in /etc/default/monit, /etc/monit/monitrc
+Add to /etc/monit/monitrc these lines:
+
+# needed so that monit command-line tools will work
+set httpd port 2812 and
+use address localhost
+allow localhost
+
+3) Setup services to monitor by adding scripts to /etc/monit/conf.d
+
+For instance, an autossh script for setting up reverse ssh service might look like this:
+
+# Monitor autossh_admin
+check process autossh_admin with pidfile /usr/local/reverse_ssh/autossh_admin.pid
+    start program = "/usr/local/reverse_ssh/bin/start_admin_tunnel.sh"
+    stop program = "/usr/local/reverse_ssh/bin/stop_admin_tunnel.sh"
+    if 100 restarts within 100 cycles then timeout
+
+4) Start monit with
+
+$ sudo /etc/init.d/monit start
+
+5) Check services using
+
+$ sudo monit summary
+$ sudo monit status
+
+6) Start monitoring a service that isn't currently being monitored
+
+$ sudo monit monitor query-composer
+
