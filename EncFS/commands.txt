@@ -1,0 +1,13 @@
+0) sudo apt-get update; sudo apt-get install encfs
+
+1) to encrypt a directory, use something like:
+
+encfs /pathto/dirname.encrypted /pathto/dirname
+
+or
+
+encfs --public /pathto/dirname.encrypted /pathto/dirname
+
+2) to unmount the directory
+
+fusermount -u /pathto/dirname
