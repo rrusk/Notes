@@ -78,6 +78,9 @@ To find lab result documents for "AGNES ASANTE", displaying last name, time, val
 
     db.records.find({ last: "ASANTE", first: "AGNES" }, {last: 1, "results.time":1, "results.value": 1, "results.description": 1, "results.referenceRange":1, "results.interpretation.code":1}).pretty()
 
+To find documents that do not have a medications key
+
+    db.records.find({ "medications": { $exists: false }}).count();
 
 ### MongoDB shell internals
 
