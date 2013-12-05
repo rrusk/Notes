@@ -46,7 +46,7 @@ To see all the entries in records in json format use
 
 To see only the medication section of the entries in json format use
 
-    db.records.find() ; while (c.hasNext()) printjson(c.next()['medications'])
+    var c = db.records.find() ; while (c.hasNext()) printjson(c.next()['medications'])
 
 To remove all old queries from the query-gateway mongo database
 
