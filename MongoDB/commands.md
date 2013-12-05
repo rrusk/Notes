@@ -48,6 +48,10 @@ To see only the medication section of the entries in json format use
 
     var c = db.records.find() ; while (c.hasNext()) printjson(c.next()['medications'])
 
+To gather only the medication codes and descriptions for all patients
+
+    var c = db.records.find({},{"medications.codes": 1, "medications.description": 1}) ; c.forEach(printjson)
+
 To remove all old queries from the query-gateway mongo database
 
     db.queries.remove()
