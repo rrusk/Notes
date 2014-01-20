@@ -1,0 +1,11 @@
+According to the MySQL documentation at http://dev.mysql.com/doc/refman/5.5/en/storage-engine-setting.html the default database engine is InnoDB as of MySQL 5.5.5 and MyISAM before 5.5.5.
+
+Jan 2014 versions of Ubuntu 12.04.3 server edition install M ySQL 5.5.34.
+
+To check the db engine used in tables of the `oscar_test` database:
+
+> SHOW TABLE STATUS FROM `oscar_test`;
+
+To change from the default InnoDB to MyISAM (which doesn't honor foreign
+key constraints) add 'default-storage-engine = myisam' to the [mysqld] block of /etc/mysql/my.cnf 
+
