@@ -1,0 +1,7 @@
+Add remote repository:
+
+$git remote add upstream git://git.code.sf.net/p/oscarmcmaster/oscar
+
+To pull from this repository to master:
+
+$ git pull upstream master

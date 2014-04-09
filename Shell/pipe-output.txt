@@ -1,0 +1,2 @@
+### output stdout and stderr to screen and to file
+# mvn clean package 2>&1 | tee -a output.log

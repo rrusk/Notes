@@ -1,0 +1,17 @@
+From http://dev.mysql.com/doc/refman/5.5/en/adding-users.html
+
+# Add user with access from localhost
+mysql> CREATE USER 'oscar'@'localhost' IDENTIFIED BY 'some_pass';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'oscar'@'localhost' WITH GRANT OPTION;
+
+# Drop user
+mysql> DROP USER 'oscar'@'localhost';
+
+# Add user with access from external hosts
+mysql> CREATE USER 'oscar'@'%' IDENTIFIED BY 'some_pass';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'oscar'@'%' WITH GRANT OPTION;
+
+# Add admin user, no password, with access from localhost
+mysql> CREATE USER 'admin'@'localhost';
+mysql> GRANT RELOAD,PROCESS ON *.* TO 'admin'@'localhost';
+mysql> CREATE USER 'dummy'@'localhost';

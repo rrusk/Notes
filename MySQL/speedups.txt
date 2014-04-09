@@ -1,0 +1,12 @@
+# For Mac OS X add this to mysqld block of my.cnf:
+skip-sync-frm=OFF
+
+# For Linux, add barrier=0 to fstab of partition containing the
+# MySQL database and remount that filesystem.  If possible, resize
+# the disk filesystems to have MySQL in its own partition rather than
+# making this change to the entire filesystem.
+# e.g. /etc/fstab entry:
+/dev/sda7 /var/lib/mysql ext4 noatime,barrier=0,errors=remount-ro 0 1
+# For an explaination of these mount options see slide 35 of:
+# http://www.percona.com/live/mysql-conference-2013/sites/default/files/slides/Percona%20Live%20-%20Linux%20Filesystems%20and%20MySQL.pdf
+
