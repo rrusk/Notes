@@ -5,3 +5,20 @@ $git remote add upstream git://git.code.sf.net/p/oscarmcmaster/oscar
 To pull from this repository to master:
 
 $ git pull upstream master
+
+To move files between NTFS and Unix disks, this allows differences
+due to file permissions to be surpressed: (From http://stackoverflow.com/questions/1580596/how-do-i-make-git-ignore-mode-changes-chmod)
+
+git config core.fileMode false
+
+From git-config(1):
+
+       core.fileMode
+           If false, the executable bit differences between the index and the
+           working copy are ignored; useful on broken filesystems like FAT.
+           See git-update-index(1). True by default.
+
+The -c flag can be used to set this option for one-off commands:
+
+git -c core.fileMode=false diff
+
