@@ -1,5 +1,9 @@
 # For Mac OS X add this to mysqld block of my.cnf:
 skip-sync-frm=OFF
+# Discovered this also speeded up MySQL on ext4 partition on my
+# Lenovo Thinkpad SSD drive I used for development.  Consequently,
+# I didn't need to set barrier=0 as indicated below to get acceptable
+# performance during Oscar unit testing.
 
 # For Linux, add barrier=0 to fstab of partition containing the
 # MySQL database and remount that filesystem.  If possible, resize

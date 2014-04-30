@@ -1,0 +1,8 @@
+# To avoid automatically starting mysqld on Ubuntu, edit /etc/init/mysql.conf
+# and comment out "start on runlevel [2345]".  Continue to allow it to shutdown
+# automatically to avoid potential database corruption.
+#
+# To start MySQL manually use:
+sudo service mysql start
+# Can check status using:
+sudo service mysql status
