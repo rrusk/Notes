@@ -1,0 +1,8 @@
+# To avoid automatically starting mongodb on Ubuntu, edit /etc/init/mongod.conf
+# and comment out "start on runlevel [2345]".  Continue to allow it to shutdown
+# automatically to avoid potential database corruption.
+#
+# To start MySQL manually use:
+sudo service mongod start
+# Can check status using:
+sudo service mongod status

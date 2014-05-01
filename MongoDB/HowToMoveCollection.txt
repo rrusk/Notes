@@ -1,0 +1,18 @@
+From http://stackoverflow.com/questions/11554762/how-can-i-copy-collection-to-another-database-in-mongodb
+
+The best way is to do a mongodump then mongorestore.
+
+You can select the collection via:
+
+mongodump -d some_database -c some_collection
+
+Then restore it:
+
+mongorestore -d some_other_db -c some_or_other_collection dump/some_collection.bson
+
+Existing data in some_or_other_collection will be preserved. That way
+you can "append" a collection from one database to another.
+
+Prior to version 2.4.3, you will also need to add back your indexes
+after you copy over your data. Starting with 2.4.3, this process is
+automatic, and you can disable it with --noIndexRestore.
