@@ -40,17 +40,25 @@ To view the next 20 documents in the records collection
 
     it
 
+To view the last 20 documents (sorted newest to oldest) in the records collection
+
+    db.records.find().sort({_id:-1}).limit(20);
+
+To view the last 10 documents (sorted newest to oldest) in the records collection
+
+    db.records.find().sort({$natural:-1}).limit(10);
+
 To see all the entries in records in json format use
 
     var c = db.records.find() ; while (c.hasNext()) printjson(c.next())
 
 To see only the medication section of the entries in json format use
 
-    var c = db.records.find() ; while (c.hasNext()) printjson(c.next()['medications'])
+    var c = db.records.find() ; while (c.hasNext()) printjson(c.next()['conditions'])
 
 To gather only the medication codes and descriptions for all patients
 
-    var c = db.records.find({},{"medications.codes": 1, "medications.description": 1}) ; c.forEach(printjson)
+    var c = db.records.find({},{"conditions.codes": 1, "conditions.description": 1}) ; c.forEach(printjson)
 
 To remove all old queries from the query-gateway mongo database
 
@@ -82,10 +90,11 @@ To find lab result documents for "AGNES ASANTE", displaying last name, time, val
 
     db.records.find({ last: "ASANTE", first: "AGNES" }, {last: 1, "results.time":1, "results.value": 1, "results.description": 1, "results.referenceRange":1, "results.interpretation.code":1}).pretty()
 
-To find documents that do not have a medications key
+To find documents that do not have a conditions key
 
-    db.records.find({ "medications": { $exists: false }}).count();
+    db.records.find({ "conditions": { $exists: false }}).count();
 
+    
 ### MongoDB shell internals
 
 The MongoDB shell provides create, read, update and delete operations through Javascript rather than SQL.
@@ -110,3 +119,13 @@ To find out how a mongodb command is implemented enter the command without param
 
     db.records.find
 
+### Some Command-Line utilities
+
+To export records
+
+    mongoexport -d query_gateway_development -c records > /tmp/records.json
+
+To dump a collection from a database and restore it to another database
+
+    mongodump -d some_database -c some_collection
+    mongorestore -d some_other_db -c some_or_other_collection dump/some_collection.bson
