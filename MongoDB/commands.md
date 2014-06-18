@@ -30,7 +30,7 @@ To count the number of entries in the records collection of query_gateway_develo
 
 To remove all the entries in records use
 
-    db.records.remove()
+    db.records.remove({})
 
 To view the (first 20) documents in the records collection
 
