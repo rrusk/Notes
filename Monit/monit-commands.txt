@@ -44,3 +44,11 @@ and has been setup in /etc/monit/conf.d/service2run
 $ sudo monit monitor service2run
 
 7) Use /var/log/monit.log to troubleshoot monit.
+
+8) To unmonitor a service:
+
+$ sudo monit unmonitor service2run
+
+9) To start a service
+
+$ sudo monit start service2run
