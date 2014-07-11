@@ -1,0 +1,6 @@
+From http://stackoverflow.com/questions/2117771/is-it-possible-to-run-one-logrotate-check-manually
+
+$ logrotate --force $CONFIG_FILE
+
+For example, on Ubuntu 12.04, rotate the tomcat6 logs in /var/lib/tomcat6/logs using:
+$ sudo logrotate --force /etc/logrotate.d/tomcat6
