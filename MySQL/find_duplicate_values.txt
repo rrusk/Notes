@@ -1,0 +1,10 @@
+From
+http://stackoverflow.com/questions/688549/finding-duplicate-values-in-mysql
+
+
+
+Do a SELECT with a GROUP BY clause. Let's say name is the column you want to find duplicates in:
+
+SELECT name, COUNT(*) c FROM table GROUP BY name HAVING c > 1;
+
+This will return a result with the name value in the first column, and a count of how many times that value appears in the second.
