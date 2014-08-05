@@ -60,6 +60,12 @@ To gather only the medication codes and descriptions for all patients
 
     var c = db.records.find({},{"conditions.codes": 1, "conditions.description": 1}) ; c.forEach(printjson)
 
+To return a field of a collection document selected by matching a specific field.  The document
+is selected based on the description field and the map field is returned.
+
+    db.queries.find({description:"STOPP Rule A02"},{map:1, _id:0})
+
+
 To remove all old queries from the query-gateway mongo database
 
     db.queries.remove()
