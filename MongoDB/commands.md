@@ -65,6 +65,13 @@ is selected based on the description field and the map field is returned.
 
     db.queries.find({description:"STOPP Rule A02"},{map:1, _id:0})
 
+To display specific field (in this case, reduce function) of all queries.
+
+    db.queries.find({},{reduce:1, _id:0})
+
+To print sorted description of all queries.
+
+    db.queries.find({},{description:1,_id:0}).sort({description:1})
 
 To remove all old queries from the query-gateway mongo database
 
