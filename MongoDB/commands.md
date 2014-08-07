@@ -134,15 +134,19 @@ To find out how a mongodb command is implemented enter the command without param
 
 ### Some Command-Line utilities
 
-To export records
+To export collection (records) from database (query_gateway_development)
 
     mongoexport -d query_gateway_development -c records > /tmp/records.json
+
+To import collection (queries) from file (queries.json) into database (query_composer_development)
+
+    mongoimport --db query_composer_development --collection queries --file queries.json
 
 To dump a collection from a database and restore it to another database
 
     mongodump -d some_database -c some_collection
     mongorestore -d some_other_db -c some_or_other_collection dump/some_collection.bson
 
-To export collection (queries) from database (query_composer_development) in a prettyprint format
+To export collection (queries) from database (query_composer_development) in a pretty-print format
 
     mongo --quiet query_composer_development --eval 'printjson(db.queries.find().toArray())' > output.json
