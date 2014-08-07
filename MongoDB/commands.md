@@ -142,3 +142,7 @@ To dump a collection from a database and restore it to another database
 
     mongodump -d some_database -c some_collection
     mongorestore -d some_other_db -c some_or_other_collection dump/some_collection.bson
+
+To export collection (queries) from database (query_composer_development) in a prettyprint format
+
+    mongo --quiet query_composer_development --eval 'printjson(db.queries.find().toArray())' > output.json
