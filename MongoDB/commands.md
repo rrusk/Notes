@@ -36,6 +36,10 @@ To view the (first 20) documents in the records collection
 
     db.records.find()
 
+To view a field of the (first 20) documents in the records collection
+
+    db.records.find({}, {field_name:1})
+
 To view the next 20 documents in the records collection
 
     it
