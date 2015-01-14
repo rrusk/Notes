@@ -23,6 +23,7 @@ To view container process logs
 #### Dockerfile hints
 
 To keep images small clean up after package installation
+
     RUN apt-get update && apt-get install -y <package> && apt-get clean
 
 #### To reduce clutter
