@@ -1,0 +1,7 @@
+Use jq (available as Ubuntu package)
+
+jq '.' input.json > output.pretty.txt
+
+To sort on specific field in json:
+
+jq 'group(.field)' input.json > output.pretty.txt

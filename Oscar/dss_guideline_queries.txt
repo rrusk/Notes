@@ -1,0 +1,25 @@
+Determine who has configured a DSS guideline preference:
+mysql> select provider_no, name, value from property where name="mydrugref_id";
+
+Determine which guidelines are active:
+mysql> select title from dsGuidelines where status='A';
+
+Determine providers using guidelines:
+mysql> select distinct provider_no from dsGuidelineProviderMap;
+mysql> select first_name, last_name from provider where provider_no=1234;
+
+Determine owner of provider number:
+mysql> select last_name,first_name from provider where provider_no=100;
+
+Determine all the guidelines in use by some physician:
+mysql> select distinct title from dsGuidelines inner join dsGuidelineProviderMap on dsGuidelines.uuid = dsGuidelineProviderMap.guideline_uuid order by title;
+
+Determine when guidelines authored by stopp were activated:
+mysql> select dateStart from dsGuidelines where author='stopp';
+mysql> select dateStart, dateDecomissioned, status from dsGuidelines where author='stopp';
+
+Determine the title of all guidelines authored by stopp:
+mysql> select title from dsGuidelines where author='stopp';
+
+Determine all guidelines with STOPP in their title:
+mysql> select title,author,version from dsGuidelines where title like '%STOPP%';

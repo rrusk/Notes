@@ -32,6 +32,10 @@ To remove all the entries in records use
 
     db.records.remove({})
 
+To remove all records matching specific filter use something like
+
+    db.records.remove({user_id: ObjectId("54cbdacb022d1efbfb00000d")})
+
 To view the (first 20) documents in the records collection
 
     db.records.find()
