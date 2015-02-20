@@ -23,3 +23,13 @@ mysql> select title from dsGuidelines where author='stopp';
 
 Determine all guidelines with STOPP in their title:
 mysql> select title,author,version from dsGuidelines where title like '%STOPP%';
+
+Determine users who have configured a mydrugref id:
+mysql> select distinct provider.provider_no, first_name, last_name, property.value from provider inner join property on provider.provider_no=property.provider_no and property.name='mydrugref_id';
+
+Determine users following the STOPP guidelines:
+mysql> select distinct p.provider_no, p.first_name from provider p inner join dsGuidelineProviderMap as gpm on p.provider_no=gpm.provider_no inner join dsGuidelines g on g.uuid=gpm.guideline_uuid and g.author='stopp' and g.status='A';
+
+Determine which STOPP guidelines each user follows:
+mysql> select p.provider_no, p.first_name, p.last_name, g.title from provider p inner join dsGuidelineProviderMap as gpm on p.provider_no=gpm.provider_no inner join dsGuidelines g on g.uuid=gpm.guideline_uuid and g.author='stopp' and g.status='A';
+
