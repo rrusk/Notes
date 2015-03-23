@@ -1,0 +1,20 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto em1
+iface em1 inet dhcp
+
+# The em1:0 interface can also be brought up manually using
+# sudo ifconfig em1:0 192.168.1.67 netmask 255.255.255.0
+auto em1:1
+iface em1:1 inet static
+	address 192.168.1.67
+#	gateway 192.168.1.1
+	network 192.168.1.0
+	netmask 255.255.255.0
+	dns-nameservers 142.104.6.1 142.104.80.2
