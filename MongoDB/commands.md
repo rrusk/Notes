@@ -60,11 +60,24 @@ To see all the entries in records in json format use
 
     var c = db.records.find() ; while (c.hasNext()) printjson(c.next())
 
-To see only the medication section of the entries in json format use
+To count the number of records with a medication section use
+
+    db.records.count({'medications':{"$exists":1}});
+
+To count the total number of medications in the medications sections of all the records use
+
+	db.records.aggregate(
+	  {$match: {}},                 
+	  {$unwind: "$medications"},
+	  {$project: {count:{$add:1}}},
+	  {$group: {_id: null, number: {$sum: "$count" }}}
+	);
+
+To see only the conditions section of the entries in json format use
 
     var c = db.records.find() ; while (c.hasNext()) printjson(c.next()['conditions'])
 
-To gather only the medication codes and descriptions for all patients
+To gather only the conditions codes and descriptions for all patients
 
     var c = db.records.find({},{"conditions.codes": 1, "conditions.description": 1}) ; c.forEach(printjson)
 
