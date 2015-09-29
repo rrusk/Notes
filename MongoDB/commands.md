@@ -98,6 +98,10 @@ To remove all old queries from the query-gateway mongo database
 
     db.queries.remove()
 
+To add an index on a collection, for instance on the field "updated_at" of the "queries" collection, sorting values in descending order
+
+    db.queries.createIndex({updated_at: -1})
+
 ### Queries
 
 To determine the number of records of gender "M" in the database
