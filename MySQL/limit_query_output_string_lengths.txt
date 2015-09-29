@@ -1,0 +1,1 @@
+mysql> select left(templatetitle, 25), left(templatedescription,170) from reportTemplates;
