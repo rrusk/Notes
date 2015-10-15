@@ -1,4 +1,5 @@
---
+-- Patient Name: John Cleese
+-- Description: Complex patient on many cardiac medications
 INSERT INTO `demographic`
 (
  title, last_name, first_name, address, city, province, postal, phone, phone2,
@@ -22,6 +23,8 @@ VALUES
  NULL,'999998','2013-09-26 00:00:00'
 );
 --
+-- Patient Name: Mark Ive
+-- Description: Now has renal failure
 INSERT INTO `demographic`
 (
  title, last_name, first_name, address, city, province, postal, phone, phone2,
@@ -45,6 +48,8 @@ VALUES
  NULL,'999998','2013-09-26 00:00:00'
 );
 --
+-- Patient Name: Joan Charles
+-- Description:
 INSERT INTO `demographic`
 (
  title, last_name, first_name, address, city, province, postal, phone, phone2,
@@ -68,6 +73,8 @@ VALUES
  NULL,'999998','2013-09-26 00:00:00'
 );
 --
+-- Patient Name: Chuck Smith
+-- Description: Healthy and active - has some OA but otherwise in great shape.
 INSERT INTO `demographic`
 (
  title, last_name, first_name, address, city, province, postal, phone, phone2,
@@ -91,6 +98,9 @@ VALUES
  NULL,'999998','2013-09-26 00:00:00'
 );
 --
+-- Patient Name: Dale Chan
+-- Description: 40 yo healthy woman on thyroid replacement. 
+--              Active. Has allergies to peanuts and other nuts
 INSERT INTO `demographic`
 (
  title, last_name, first_name, address, city, province, postal, phone, phone2,
@@ -114,6 +124,8 @@ VALUES
  NULL,'999998','2013-09-26 00:00:00'
 );
 --
+-- Patient Name: Harry Jones
+-- Description: 93+ year old gentleman
 INSERT INTO `demographic`
 (
  title, last_name, first_name, address, city, province, postal, phone, phone2,
@@ -137,6 +149,9 @@ VALUES
  NULL,'999998','2013-09-26 00:00:00'
 );
 --
+-- Patient Name: Mary Jones
+-- Description: Relatively healthy smoker with mild COPD
+--              and previous depression.
 INSERT INTO `demographic`
 (
  title, last_name, first_name, address, city, province, postal, phone, phone2,
@@ -160,6 +175,11 @@ VALUES
  NULL,'999998','2013-09-26 00:00:00'
 );
 --
+-- Patient Name: Jill Thomas
+-- Description: Elderly gardener, still volunteering to teach.
+--              Some anxiety has been a long standing user of benzos.
+--              Will not stop.
+--              Now has renal failure
 INSERT INTO `demographic`
 (
  title, last_name, first_name, address, city, province, postal, phone, phone2,
@@ -183,6 +203,8 @@ VALUES
  NULL,'999998','2013-09-26 00:00:00'
 );
 --
+-- Patient Name: Elizabeth Sinclair
+-- Description: Smoker without COPD on the problem list (but on COPD meds)
 INSERT INTO `demographic`
 (
  title, last_name, first_name, address, city, province, postal, phone, phone2,
@@ -206,6 +228,8 @@ VALUES
  NULL,'999998','2013-09-26 00:00:00'
 );
 --
+-- Patient Name: Mary Sugar
+-- Description: Diabetic w/ Renal Failure
 INSERT INTO `demographic`
 (
  title, last_name, first_name, address, city, province, postal, phone, phone2,
