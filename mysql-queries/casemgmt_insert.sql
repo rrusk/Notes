@@ -98,6 +98,19 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','','1990-01-01'),
 ((select max(note_id) from casemgmt_note),'Resolution Date','','1990-05-31'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 1,6
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MR' and last_name='CLEESE' and first_name='JOHN' 
+  and official_lang='English' and sex='M'
+  and year_of_birth='1940' and month_of_birth='09' and date_of_birth='25'
+  and hin='448000001'),
+66,0,0,0,0,10016,'nurse','2013-09-26 16:18:23');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
+
 
 -- 7
 INSERT INTO `casemgmt_note`
@@ -118,6 +131,18 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','YYYY','2012-01-01'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 2,7
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MR' and last_name='CLEESE' and first_name='JOHN' 
+  and official_lang='English' and sex='M'
+  and year_of_birth='1940' and month_of_birth='09' and date_of_birth='25'
+  and hin='448000001'),
+64,0,0,0,0,10016,'nurse','2013-09-26 16:19:01');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 8
 INSERT INTO `casemgmt_note`
@@ -138,6 +163,10 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','YYYY','2001-01-01'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 2,8
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 9
 INSERT INTO `casemgmt_note`
@@ -158,6 +187,10 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','YYYY','2000-01-01'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 2,9
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 10
 INSERT INTO `casemgmt_note`
@@ -179,6 +212,18 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Age at Onset','45',NULL),
 ((select max(note_id) from casemgmt_note),'Relationship','Father',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 3,10
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MR' and last_name='CLEESE' and first_name='JOHN' 
+  and official_lang='English' and sex='M'
+  and year_of_birth='1940' and month_of_birth='09' and date_of_birth='25'
+  and hin='448000001'),
+69,0,0,0,0,10016,'nurse','2013-09-26 16:20:35');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 11
 INSERT INTO `casemgmt_note`
@@ -199,6 +244,18 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','','1905-06-16'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 4,11
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MR' and last_name='IVE' and first_name='MARK' 
+  and official_lang='English' and sex='M'
+  and year_of_birth='1944' and month_of_birth='01' and date_of_birth='28'
+  and hin='448000002'),
+66,0,0,0,0,10016,'nurse','2013-09-26 16:21:41');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 12
 INSERT INTO `casemgmt_note`
@@ -219,6 +276,18 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','YYYY','2005-01-01'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 5,12
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MR' and last_name='IVE' and first_name='MARK' 
+  and official_lang='English' and sex='M'
+  and year_of_birth='1944' and month_of_birth='01' and date_of_birth='28'
+  and hin='448000002'),
+64,0,0,0,0,10016,'nurse','2013-09-26 16:21:55');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 13
 INSERT INTO `casemgmt_note`
@@ -238,6 +307,18 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 6,13
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MR' and last_name='IVE' and first_name='MARK' 
+  and official_lang='English' and sex='M'
+  and year_of_birth='1944' and month_of_birth='01' and date_of_birth='28'
+  and hin='448000002'),
+69,0,0,0,0,10016,'nurse','2013-09-26 16:22:12');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 14
 INSERT INTO `casemgmt_note`
@@ -257,6 +338,18 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 7,14
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MRS' and last_name='CHARLES' and first_name='JOAN' 
+  and official_lang='English' and sex='F'
+  and year_of_birth='1955' and month_of_birth='08' and date_of_birth='29'
+  and hin='448000003'),
+64,0,0,0,0,10016,'nurse','2013-09-26 16:22:55');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 15
 INSERT INTO `casemgmt_note`
@@ -276,6 +369,10 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 7,15
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 16
 INSERT INTO `casemgmt_note`
@@ -295,6 +392,10 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 7,16
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 17
 INSERT INTO `casemgmt_note`
@@ -316,6 +417,18 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Age at Onset','25',NULL),
 ((select max(note_id) from casemgmt_note),'Relationship','Mother',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 8,17
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MRS' and last_name='CHARLES' and first_name='JOAN' 
+  and official_lang='English' and sex='F'
+  and year_of_birth='1955' and month_of_birth='08' and date_of_birth='29'
+  and hin='448000003'),
+69,0,0,0,0,10016,'nurse','2013-09-26 16:23:38');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 18
 INSERT INTO `casemgmt_note`
@@ -337,6 +450,10 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Age at Onset','22',NULL),
 ((select max(note_id) from casemgmt_note),'Relationship','Sister',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 8,18
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 19
 INSERT INTO `casemgmt_note`
@@ -356,6 +473,18 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 9,19
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MR' and last_name='SMITH' and first_name='CHUCK' 
+  and official_lang='English' and sex='M'
+  and year_of_birth='1936' and month_of_birth='05' and date_of_birth='27'
+  and hin='448000004'),
+64,0,0,0,0,10016,'nurse','2013-09-26 16:24:15');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 20
 INSERT INTO `casemgmt_note`
@@ -375,6 +504,10 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 9,20
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 21
 INSERT INTO `casemgmt_note`
@@ -394,6 +527,18 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 10,21
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MRS' and last_name='CHAN' and first_name='DALE' 
+  and official_lang='English' and sex='F'
+  and year_of_birth='1973' and month_of_birth='01' and date_of_birth='29'
+  and hin='448000005'),
+64,0,0,0,0,10016,'nurse','2013-09-26 16:25:08');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 22
 INSERT INTO `casemgmt_note`
@@ -413,6 +558,10 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 10,22
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 23
 INSERT INTO `casemgmt_note`
@@ -432,6 +581,18 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 11,23
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MRS' and last_name='JONES' and first_name='MARY' 
+  and official_lang='English' and sex='F'
+  and year_of_birth='1923' and month_of_birth='10' and date_of_birth='16'
+  and hin='448000007'),
+66,0,0,0,0,10016,'nurse','2013-09-26 16:25:59');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 24
 INSERT INTO `casemgmt_note`
@@ -451,6 +612,18 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 12,24
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MRS' and last_name='JONES' and first_name='MARY' 
+  and official_lang='English' and sex='F'
+  and year_of_birth='1923' and month_of_birth='10' and date_of_birth='16'
+  and hin='448000007'),
+64,0,0,0,0,10016,'nurse','2013-09-26 16:26:10');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 25
 INSERT INTO `casemgmt_note`
@@ -472,6 +645,18 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Age at Onset','30',NULL),
 ((select max(note_id) from casemgmt_note),'Relationship','Mother',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 13,25
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MRS' and last_name='JONES' and first_name='MARY' 
+  and official_lang='English' and sex='F'
+  and year_of_birth='1923' and month_of_birth='10' and date_of_birth='16'
+  and hin='448000007'),
+69,0,0,0,0,10016,'nurse','2013-09-26 16:26:28');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 26
 INSERT INTO `casemgmt_note`
@@ -492,6 +677,10 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','Father',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 13,26
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 27
 INSERT INTO `casemgmt_note`
@@ -513,6 +702,10 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Age at Onset','21',NULL),
 ((select max(note_id) from casemgmt_note),'Relationship','Sister',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 13,27
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 28
 INSERT INTO `casemgmt_note`
@@ -532,6 +725,18 @@ VALUES
 INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 14,28
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MS' and last_name='THOMAS' and first_name='JILL' 
+  and official_lang='English' and sex='F'
+  and year_of_birth='1924' and month_of_birth='04' and date_of_birth='28'
+  and hin='448000008'),
+64,0,0,0,0,10016,'nurse','2013-09-26 16:27:21');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 29
 INSERT INTO `casemgmt_note`
@@ -552,6 +757,18 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','dad',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 15,29
+INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
+VALUES
+((select demographic_no from demographic
+  where title='MS' and last_name='THOMAS' and first_name='JILL' 
+  and official_lang='English' and sex='F'
+  and year_of_birth='1924' and month_of_birth='04' and date_of_birth='28'
+  and hin='448000008'),
+69,0,0,0,0,10016,'nurse','2013-09-26 16:27:38');
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 30
 INSERT INTO `casemgmt_note`
@@ -572,3 +789,7 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','sister',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
+-- 15,30
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
