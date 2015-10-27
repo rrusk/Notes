@@ -1,0 +1,28 @@
+-- Pair primary key of casemgmt_issue table with primary key of casemgmt_note
+INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
+VALUES
+(1,6),
+(2,7),
+(2,8),
+(2,9),
+(3,10),
+(4,11),
+(5,12),
+(6,13),
+(7,14),
+(7,15),
+(7,16),
+(8,17),
+(8,18),
+(9,19),
+(9,20),
+(10,21),
+(10,22),
+(11,23),
+(12,24),
+(13,25),
+(13,26),
+(13,27),
+(14,28),
+(15,29),
+(15,30);
