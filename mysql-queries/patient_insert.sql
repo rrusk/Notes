@@ -59,6 +59,19 @@ VALUES
 ('999998',
 (select max(demographic_no) from demographic),
 '2013-09-27','2013-11-06','2013-09-27',NULL,'ATIVAN 1MG',1512,NULL,1,1,'BID','20','D','40',1,NULL,0,1,'ATIVAN 1MG\nTake 1 SL BID PRN\nQty:40 Repeats:1',NULL,0,'LORAZEPAM','N05BA06',1,'02041421','MG','Take','SL','TABLET','2013-09-27 12:51:23','1.0 MG',0,NULL,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,9,NULL,0,'2013-09-27 12:51:23',0);
+-- Problem List
+INSERT INTO `dxresearch`
+(demographic_no,
+ start_date, update_date, status, dxresearch_code, coding_system, association, providerNo)
+VALUES
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','428','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','401','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','250','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','491','icd9',0,NULL);
 
 -- 2
 INSERT INTO `demographic`
@@ -125,6 +138,19 @@ VALUES
 ('999998',
 (select max(demographic_no) from demographic),
 '2013-09-27','2013-10-25','2013-09-27',NULL,'PMS-DIGOXIN 0.25MG',9031,NULL,1,1,'OD','28','D','28',0,NULL,0,0,'PMS-DIGOXIN 0.25MG\nTake 1 PO OD 28 days\nQty:28 Repeats:0',NULL,0,'DIGOXIN','C01AA05',2,'02245428','MG','Take','PO','TABLET','2013-09-27 12:57:32','0.25 MG',0,NULL,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,10,NULL,0,'2013-09-27 12:57:32',0);
+-- Problem List
+INSERT INTO `dxresearch`
+(demographic_no,
+ start_date, update_date, status, dxresearch_code, coding_system, association, providerNo)
+VALUES
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','250','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','434','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','401','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','3000','icd9',0,NULL);
 
 -- 3
 INSERT INTO `demographic`
@@ -177,6 +203,19 @@ VALUES
 ('999998',
 (select max(demographic_no) from demographic),
 '2013-09-27','2013-11-22','2013-09-27',NULL,'CARVEDILOL 12.5MG',6149,NULL,1,1,'OD','28','D','28',1,NULL,0,0,'CARVEDILOL 12.5MG\nTake 1 PO OD 28 days\nQty:28 Repeats:1',NULL,0,'CARVEDILOL','C07AG02',3,'02364948','MG','Take','PO','TABLET','2013-09-27 13:34:03','12.5 MG',0,NULL,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,7,NULL,0,'2013-09-27 13:34:03',0);
+-- Problem List
+INSERT INTO `dxresearch`
+(demographic_no,
+ start_date, update_date, status, dxresearch_code, coding_system, association, providerNo)
+VALUES
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','401','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','250','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','412','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','733','icd9',0,NULL);
 
 -- 4
 INSERT INTO `demographic`
@@ -204,6 +243,13 @@ VALUES
  NULL,NULL,NULL,'','-1','Unknown',
  NULL,'999998','2013-09-26 00:00:00'
 );
+-- Problem List
+INSERT INTO `dxresearch`
+(demographic_no,
+ start_date, update_date, status, dxresearch_code, coding_system, association, providerNo)
+VALUES
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','7153','icd9',0,NULL);
 
 -- 5
 INSERT INTO `demographic`
@@ -247,6 +293,13 @@ VALUES
 ('999998',
 (select max(demographic_no) from demographic),
 '2013-09-27','2013-09-27','2013-09-27',NULL,'EPIPEN 0.3MG/0.3ML AUTO-INJECTOR',3403,NULL,1,1,NULL,'0',NULL,'1',3,NULL,0,1,'EPIPEN 0.3MG/0.3ML AUTO-INJECTOR\nTake 1 IM once prn\nQty:1 Repeats:3',NULL,0,'EPINEPHRINE','C01CA24',4,'00509558','MG','Take','IM','SOLUTION','2013-09-27 13:41:22','1.0 MG',0,NULL,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,2,NULL,0,'2013-09-27 13:41:22',0);
+-- Problem List
+INSERT INTO `dxresearch`
+(demographic_no,
+ start_date, update_date, status, dxresearch_code, coding_system, association, providerNo)
+VALUES
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','244','icd9',0,NULL);
 
 -- 6
 INSERT INTO `demographic`
@@ -305,6 +358,19 @@ VALUES
 ('999998',
 (select max(demographic_no) from demographic),
 '2013-09-27','2013-11-22','2013-09-27',NULL,'ATROVENT HFA 20?G',9338,NULL,1,1,'TID','4','W','84',1,NULL,0,0,'ATROVENT HFA 20?G\nTake 1 INH TID 4 w\nQty:84 Repeats:1',NULL,0,'IPRATROPIUM BROMIDE','R03BB01',5,'02247686','µG','Take','INH','METERED-DOSE AEROSOL','2013-09-27 13:48:24','20.0 µG',0,NULL,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,9,NULL,0,'2013-09-27 13:48:24',0);
+-- Problem List
+INSERT INTO `dxresearch`
+(demographic_no,
+ start_date, update_date, status, dxresearch_code, coding_system, association, providerNo)
+VALUES
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','492','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','8054','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','272','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','410','icd9',0,NULL);
 
 -- 7
 INSERT INTO `demographic`
@@ -343,6 +409,13 @@ VALUES
 ('999998',
 (select max(demographic_no) from demographic),
 '2013-09-27','2013-11-22','2013-09-27',NULL,'ATROVENT HFA 20?G',9338,NULL,2,2,'TID','4','W','168',1,NULL,0,0,'ATROVENT HFA 20?G\nTake 2 INH TID 4 w\nQty:168 Repeats:1',NULL,0,'IPRATROPIUM BROMIDE','R03BB01',6,'02247686','µG','Take','INH','METERED-DOSE AEROSOL','2013-09-27 13:50:28','20.0 µG',0,NULL,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,2,NULL,0,'2013-09-27 13:50:28',0);
+-- Problem List
+INSERT INTO `dxresearch`
+(demographic_no,
+ start_date, update_date, status, dxresearch_code, coding_system, association, providerNo)
+VALUES
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','492','icd9',0,NULL);
 
 -- 8
 INSERT INTO `demographic`
@@ -386,6 +459,15 @@ VALUES
 ('999998',
 (select max(demographic_no) from demographic),
 '2013-09-27','2013-10-25','2013-09-27',NULL,'PMS-DIGOXIN 0.25MG',9031,NULL,1,1,'OD','28','D','28',0,NULL,0,0,'PMS-DIGOXIN 0.25MG\nTake 1 PO OD 28 days\nQty:28 Repeats:0',NULL,0,'DIGOXIN','C01AA05',7,'02245428','MG','Take','PO','TABLET','2013-09-27 13:52:37','0.25 MG',0,NULL,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,3,NULL,0,'2013-09-27 13:52:37',0);
+-- Problem List
+INSERT INTO `dxresearch`
+(demographic_no,
+ start_date, update_date, status, dxresearch_code, coding_system, association, providerNo)
+VALUES
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','244','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','3000','icd9',0,NULL);
 
 -- 9
 INSERT INTO `demographic`
@@ -426,6 +508,15 @@ VALUES
 ('999998',
 (select max(demographic_no) from demographic),
 '2013-09-27','2013-11-22','2013-09-27',NULL,'ATROVENT HFA 20?G',9338,NULL,1,1,'TID','4','W','84',1,NULL,0,0,'ATROVENT HFA 20?G\nTake 1 INH TID 4 w\nQty:84 Repeats:1',NULL,0,'IPRATROPIUM BROMIDE','R03BB01',8,'02247686','µG','Take','INH','METERED-DOSE AEROSOL','2013-09-27 13:55:26','20.0 µG',0,NULL,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,3,NULL,0,'2013-09-27 13:55:26',0);
+-- Problem List
+INSERT INTO `dxresearch`
+(demographic_no,
+ start_date, update_date, status, dxresearch_code, coding_system, association, providerNo)
+VALUES
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','3051','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','303','icd9',0,NULL);
 
 -- 10
 INSERT INTO `demographic`
@@ -460,3 +551,12 @@ VALUES
 ('999998',
 (select max(demographic_no) from demographic),
 '2013-09-27','2013-12-20','2013-09-27',NULL,'METFORMIN FC 500MG',5605,NULL,1,1,'BID','84','D','168',0,NULL,0,0,'METFORMIN FC 500MG\nTake 1 PO BID 84 days\nQty:168 Repeats:0',NULL,0,'METFORMIN HYDROCHLORIDE','A10BA02',9,'02385341','MG','Take','PO','TABLET','2013-09-27 13:56:25','500.0 MG',0,NULL,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,1,NULL,0,'2013-09-27 13:56:25',0);
+-- Problem List
+INSERT INTO `dxresearch`
+(demographic_no,
+ start_date, update_date, status, dxresearch_code, coding_system, association, providerNo)
+VALUES
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','250','icd9',0,NULL),
+((select max(demographic_no) from demographic),
+ '2013-09-26','2013-09-26 00:00:00','A','585','icd9',0,NULL);
