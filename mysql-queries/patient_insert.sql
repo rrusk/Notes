@@ -28,6 +28,49 @@ INSERT INTO `allergies` (`demographic_no`, `entry_date`, `DESCRIPTION`, `HICL_SE
 VALUES
 ((select max(demographic_no) from demographic),
 '2013-09-26','PENICILLINS, COMBINATIONS WITH OTHER ANTIBACTERIAL',NULL,NULL,NULL,NULL,8,NULL,'43507',0,'1935-01-01',NULL,'4','4',NULL,NULL,0,'2013-03-05 13:30:47',NULL);
+-- Immunizations
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:01:22','2012-09-01 00:00:00','999998',NULL,'Td','0','0',NULL,'0',999998,'2013-09-27 14:01:22');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','Left Delt'),
+((select max(id) from preventions),'lot','1234'),
+((select max(id) from preventions),'route','IM'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:01:44','2009-02-01 00:00:00','999998',NULL,'Flu','0','0',NULL,'0',999998,'2013-09-27 14:01:44');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location',''),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route',''),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:02:19','2012-10-31 00:00:00','999998',NULL,'Pneumovax','0','0',NULL,'0',999998,'2013-09-27 14:02:19');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','Right Delt'),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route','IM'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
 -- Medications
 INSERT INTO `drugs`
 (`provider_no`, `demographic_no`, `rx_date`, `end_date`, `written_date`, `pickup_datetime`, `BN`, `GCN_SEQNO`, `customName`, `takemin`, `takemax`, `freqcode`, `duration`, `durunit`, `quantity`, `repeat`, `last_refill_date`, `nosubs`, `prn`, `special`, `special_instruction`, `archived`, `GN`, `ATC`, `script_no`, `regional_identifier`, `unit`, `method`, `route`, `drug_form`, `create_date`, `dosage`, `custom_instructions`, `unitName`, `custom_note`, `long_term`, `non_authoritative`, `past_med`, `patient_compliance`, `outside_provider_name`, `outside_provider_ohip`, `archived_reason`, `archived_date`, `hide_from_drug_profile`, `eTreatmentType`, `rxStatus`, `dispense_interval`, `refill_duration`, `refill_quantity`, `hide_cpp`, `position`, `comment`, `start_date_unknown`, `lastUpdateDate`, `dispenseInternal`)
@@ -104,6 +147,21 @@ INSERT INTO `allergies` (`demographic_no`, `entry_date`, `DESCRIPTION`, `HICL_SE
 VALUES
 ((select max(demographic_no) from demographic),
 '2013-09-26','SULFADIAZINE',NULL,NULL,NULL,NULL,8,'Hives','43750',0,'1970-01-01',NULL,'2','2',NULL,NULL,0,'2013-03-05 14:27:08',NULL);
+-- Immunizations
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:03:52','2012-11-03 00:00:00','999998',NULL,'Flu','0','0',NULL,'0',999998,'2013-09-27 14:03:52');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','rt delt'),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route','im'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
 -- Medications
 INSERT INTO `drugs`
 (`provider_no`, `demographic_no`, `rx_date`, `end_date`, `written_date`, `pickup_datetime`, `BN`, `GCN_SEQNO`, `customName`, `takemin`, `takemax`, `freqcode`, `duration`, `durunit`, `quantity`, `repeat`, `last_refill_date`, `nosubs`, `prn`, `special`, `special_instruction`, `archived`, `GN`, `ATC`, `script_no`, `regional_identifier`, `unit`, `method`, `route`, `drug_form`, `create_date`, `dosage`, `custom_instructions`, `unitName`, `custom_note`, `long_term`, `non_authoritative`, `past_med`, `patient_compliance`, `outside_provider_name`, `outside_provider_ohip`, `archived_reason`, `archived_date`, `hide_from_drug_profile`, `eTreatmentType`, `rxStatus`, `dispense_interval`, `refill_duration`, `refill_quantity`, `hide_cpp`, `position`, `comment`, `start_date_unknown`, `lastUpdateDate`, `dispenseInternal`)
@@ -178,6 +236,63 @@ VALUES
  NULL,NULL,NULL,'','-1','Unknown',
  NULL,'999998','2013-09-26 00:00:00'
 );
+-- Immunizatons
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:04:43','2003-02-01 00:00:00','999998',NULL,'Pneumovax','0','0',NULL,'0',999998,'2013-09-27 14:04:43');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location',''),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route',''),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:05:04','2012-10-31 00:00:00','999998',NULL,'Flu','0','0',NULL,'0',999998,'2013-09-27 14:05:04');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','Right Delt'),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route','IM'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:05:21','2011-11-10 00:00:00','999998',NULL,'Flu','0','0',NULL,'0',999998,'2013-09-27 14:05:21');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','Right Delt'),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route','IM'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:05:43','2010-10-29 00:00:00','999998',NULL,'Flu','0','0',NULL,'0',999998,'2013-09-27 14:05:43');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','Left Deltoid'),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route','IM'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
 -- Medications
 INSERT INTO `drugs`
 (`provider_no`, `demographic_no`, `rx_date`, `end_date`, `written_date`, `pickup_datetime`, `BN`, `GCN_SEQNO`, `customName`, `takemin`, `takemax`, `freqcode`, `duration`, `durunit`, `quantity`, `repeat`, `last_refill_date`, `nosubs`, `prn`, `special`, `special_instruction`, `archived`, `GN`, `ATC`, `script_no`, `regional_identifier`, `unit`, `method`, `route`, `drug_form`, `create_date`, `dosage`, `custom_instructions`, `unitName`, `custom_note`, `long_term`, `non_authoritative`, `past_med`, `patient_compliance`, `outside_provider_name`, `outside_provider_ohip`, `archived_reason`, `archived_date`, `hide_from_drug_profile`, `eTreatmentType`, `rxStatus`, `dispense_interval`, `refill_duration`, `refill_quantity`, `hide_cpp`, `position`, `comment`, `start_date_unknown`, `lastUpdateDate`, `dispenseInternal`)
@@ -243,6 +358,49 @@ VALUES
  NULL,NULL,NULL,'','-1','Unknown',
  NULL,'999998','2013-09-26 00:00:00'
 );
+-- Immunizations
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:06:37','2012-10-25 00:00:00','999998',NULL,'Flu','0','0',NULL,'0',999998,'2013-09-27 14:06:37');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','Right Delt'),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route','IM'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:07:06','2011-11-13 00:00:00','999998',NULL,'Flu','0','0',NULL,'0',999998,'2013-09-27 14:07:06');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','Right Delt'),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route','IM'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:07:23','2005-10-29 00:00:00','999998',NULL,'Flu','0','0',NULL,'0',999998,'2013-09-27 14:07:23');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','Left Deltoid'),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route','IM'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
 -- Problem List
 INSERT INTO `dxresearch`
 (demographic_no,
@@ -327,6 +485,21 @@ VALUES
  NULL,NULL,NULL,'','-1','Unknown',
  NULL,'999998','2013-09-26 00:00:00'
 );
+-- Immunizations
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:09:15','2012-10-25 00:00:00','999998',NULL,'Flu','0','0',NULL,'0',999998,'2013-09-27 14:09:15');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','Right Delt'),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route','IM'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
 -- Medications
 INSERT INTO `drugs`
 (`provider_no`, `demographic_no`, `rx_date`, `end_date`, `written_date`, `pickup_datetime`, `BN`, `GCN_SEQNO`, `customName`, `takemin`, `takemax`, `freqcode`, `duration`, `durunit`, `quantity`, `repeat`, `last_refill_date`, `nosubs`, `prn`, `special`, `special_instruction`, `archived`, `GN`, `ATC`, `script_no`, `regional_identifier`, `unit`, `method`, `route`, `drug_form`, `create_date`, `dosage`, `custom_instructions`, `unitName`, `custom_note`, `long_term`, `non_authoritative`, `past_med`, `patient_compliance`, `outside_provider_name`, `outside_provider_ohip`, `archived_reason`, `archived_date`, `hide_from_drug_profile`, `eTreatmentType`, `rxStatus`, `dispense_interval`, `refill_duration`, `refill_quantity`, `hide_cpp`, `position`, `comment`, `start_date_unknown`, `lastUpdateDate`, `dispenseInternal`)
@@ -399,6 +572,21 @@ VALUES
  NULL,NULL,NULL,'','-1','Unknown',
  NULL,'999998','2013-09-26 00:00:00'
 );
+-- Immunizations
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:10:16','2012-10-25 00:00:00','999998',NULL,'Flu','0','0',NULL,'0',999998,'2013-09-27 14:10:16');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location','Right Delt'),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route','IM'),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
 -- Medications
 INSERT INTO `drugs`
 (`provider_no`, `demographic_no`, `rx_date`, `end_date`, `written_date`, `pickup_datetime`, `BN`, `GCN_SEQNO`, `customName`, `takemin`, `takemax`, `freqcode`, `duration`, `durunit`, `quantity`, `repeat`, `last_refill_date`, `nosubs`, `prn`, `special`, `special_instruction`, `archived`, `GN`, `ATC`, `script_no`, `regional_identifier`, `unit`, `method`, `route`, `drug_form`, `create_date`, `dosage`, `custom_instructions`, `unitName`, `custom_note`, `long_term`, `non_authoritative`, `past_med`, `patient_compliance`, `outside_provider_name`, `outside_provider_ohip`, `archived_reason`, `archived_date`, `hide_from_drug_profile`, `eTreatmentType`, `rxStatus`, `dispense_interval`, `refill_duration`, `refill_quantity`, `hide_cpp`, `position`, `comment`, `start_date_unknown`, `lastUpdateDate`, `dispenseInternal`)
@@ -544,6 +732,21 @@ VALUES
  NULL,NULL,NULL,'','-1','Unknown',
  NULL,'999998','2013-09-26 00:00:00'
 );
+-- Immunizations
+INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
+VALUES
+((select max(demographic_no) from demographic),
+'2013-09-27 14:10:57','2012-10-15 00:00:00','999998',NULL,'Pneumovax','0','0',NULL,'0',999998,'2013-09-27 14:10:57');
+INSERT INTO `preventionsExt` (`prevention_id`, `keyval`, `val`)
+VALUES
+((select max(id) from preventions),'location',''),
+((select max(id) from preventions),'lot',''),
+((select max(id) from preventions),'route',''),
+((select max(id) from preventions),'dose',''),
+((select max(id) from preventions),'comments',''),
+((select max(id) from preventions),'neverReason',''),
+((select max(id) from preventions),'manufacture',''),
+((select max(id) from preventions),'name','');
 -- Medications
 INSERT INTO `drugs`
 (`provider_no`, `demographic_no`, `rx_date`, `end_date`, `written_date`, `pickup_datetime`, `BN`, `GCN_SEQNO`, `customName`, `takemin`, `takemax`, `freqcode`, `duration`, `durunit`, `quantity`, `repeat`, `last_refill_date`, `nosubs`, `prn`, `special`, `special_instruction`, `archived`, `GN`, `ATC`, `script_no`, `regional_identifier`, `unit`, `method`, `route`, `drug_form`, `create_date`, `dosage`, `custom_instructions`, `unitName`, `custom_note`, `long_term`, `non_authoritative`, `past_med`, `patient_compliance`, `outside_provider_name`, `outside_provider_ohip`, `archived_reason`, `archived_date`, `hide_from_drug_profile`, `eTreatmentType`, `rxStatus`, `dispense_interval`, `refill_duration`, `refill_quantity`, `hide_cpp`, `position`, `comment`, `start_date_unknown`, `lastUpdateDate`, `dispenseInternal`)
