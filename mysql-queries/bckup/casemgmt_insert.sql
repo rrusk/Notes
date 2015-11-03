@@ -1,4 +1,5 @@
 -- 1
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -15,6 +16,7 @@ VALUES
 '999998','[25-Sep-2013 .: Tel-Progress Notes]',0,0,'','','','10016','1','0','[25-Sep-2013 .: Tel-Progress Notes]',NULL,'0',0,0,'2da90304-4809-4777-a6d7-c8eb0fcc3698',0,NULL,NULL,NULL,NULL);
 
 -- 2
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -31,6 +33,7 @@ VALUES
 '999998','[25-Sep-2013 .: Tel-Progress Notes]\nBP    130/85 sitting position \nHT    187 in cm \nHR    85 in bpm (nnn) Range:40-180 \nTEMP    37 degrees celcius \nWAIS    92 Waist Circum in cm \nWT    95 in kg',0,0,'','','','10016','1','0','[25-Sep-2013 .: Tel-Progress Notes]\nBP    130/85 sitting position \nHT    187 in cm \nHR    85 in bpm (nnn) Range:40-180 \nTEMP    37 degrees celcius \nWAIS    92 Waist Circum in cm \nWT    95 in kg\n   ----------------History Record----------------   \n[25-Sep-2013 .: Tel-Progress Notes]\n',NULL,'0',0,0,'2da90304-4809-4777-a6d7-c8eb0fcc3698',0,NULL,NULL,NULL,NULL);
 
 -- 3
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -47,6 +50,7 @@ VALUES
 '999998','[25-Sep-2013 .: Tel-Progress Notes]\nBP    130/85 sitting position \nHT    187 in cm \nHR    85 in bpm (nnn) Range:40-180 \nTEMP    37 degrees celcius \nWAIS    92 Waist Circum in cm \nWT    95 in kg',0,0,'','','','10016','1','0','[25-Sep-2013 .: Tel-Progress Notes]\nBP    130/85 sitting position \nHT    187 in cm \nHR    85 in bpm (nnn) Range:40-180 \nTEMP    37 degrees celcius \nWAIS    92 Waist Circum in cm \nWT    95 in kg\n   ----------------History Record----------------   \n[25-Sep-2013 .: Tel-Progress Notes]\nBP    130/85 sitting position \nHT    187 in cm \nHR    85 in bpm (nnn) Range:40-180 \nTEMP    37 degrees celcius \nWAIS    92 Waist Circum in cm \nWT    95 in kg\n   ----------------History Record----------------   \n[25-Sep-2013 .: Tel-Progress Notes]\n\n',NULL,'0',0,0,'2da90304-4809-4777-a6d7-c8eb0fcc3698',0,NULL,NULL,NULL,NULL);
 
 -- 4
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -63,6 +67,7 @@ VALUES
 '999998','[26-Sep-2013 .: Tel-Progress Notes] \n\nBP    140/90 sitting position',0,0,'','','','10016','1','0','[26-Sep-2013 .: Tel-Progress Notes] \n\nBP    140/90 sitting position',NULL,'0',0,0,'7b259e6b-9123-405a-90a0-be4cedff9934',0,NULL,NULL,NULL,NULL);
 
 -- 5
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -79,6 +84,7 @@ VALUES
 '999998','[26-Sep-2013 .: Tel-Progress Notes] \n\nBP    130/85 sitting position \nHT    160 in cm \nWT    85 in kg',0,0,'','','','10016','1','0','[26-Sep-2013 .: Tel-Progress Notes] \n\nBP    130/85 sitting position \nHT    160 in cm \nWT    85 in kg',NULL,'0',0,0,'b09b2536-3f31-48aa-a696-03cb4457724e',0,NULL,NULL,NULL,NULL);
 
 -- 6
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -99,6 +105,7 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Resolution Date','','1990-05-31'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 1,6
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -113,6 +120,7 @@ VALUES
 
 
 -- 7
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -132,6 +140,7 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','YYYY','2012-01-01'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 2,7
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -145,6 +154,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 8
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -164,11 +174,13 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','YYYY','2001-01-01'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 2,8
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
 VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 9
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -188,11 +200,13 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','YYYY','2000-01-01'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 2,9
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
 VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 10
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -213,6 +227,7 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','Father',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 3,10
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -226,6 +241,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 11
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -245,6 +261,7 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','','1905-06-16'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 4,11
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -258,6 +275,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 12
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -277,6 +295,7 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Start Date','YYYY','2005-01-01'),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 5,12
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -290,6 +309,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 13
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -308,6 +328,7 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 6,13
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -321,6 +342,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 14
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -339,6 +361,7 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 7,14
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -352,6 +375,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 15
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -370,11 +394,13 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 7,15
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
 VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 16
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -393,11 +419,13 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 7,16
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
 VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 17
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -418,6 +446,7 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','Mother',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 8,17
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -431,6 +460,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 18
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -451,11 +481,13 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','Sister',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 8,18
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
 VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 19
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -474,6 +506,7 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 9,19
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -487,6 +520,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 20
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -505,11 +539,13 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 9,20
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
 VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 21
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -528,6 +564,7 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 10,21
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -541,6 +578,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 22
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -559,11 +597,13 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 10,22
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
 VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 23
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -582,6 +622,7 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 11,23
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -595,6 +636,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 24
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -613,6 +655,7 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 12,24
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -626,6 +669,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 25
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -646,6 +690,7 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','Mother',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 13,25
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -659,6 +704,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 26
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -678,11 +724,13 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','Father',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 13,26
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
 VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 27
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -703,11 +751,13 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','Sister',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 13,27
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
 VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 28
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -726,6 +776,7 @@ INSERT INTO `casemgmt_note_ext` (`note_id`, `key_val`, `value`, `date_value`)
 VALUES
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 14,28
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -739,6 +790,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 29
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -758,6 +810,7 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','dad',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 15,29
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue` (`demographic_no`, `issue_id`, `acute`, `certain`, `major`, `resolved`, `program_id`, `type`, `update_date`)
 VALUES
 ((select demographic_no from demographic
@@ -771,6 +824,7 @@ VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
 
 -- 30
+-- Encounters
 INSERT INTO `casemgmt_note`
 (
 `update_date`, `observation_date`,
@@ -790,6 +844,7 @@ VALUES
 ((select max(note_id) from casemgmt_note),'Relationship','sister',NULL),
 ((select max(note_id) from casemgmt_note),'Hide Cpp','0',NULL);
 -- 15,30
+-- Alerts, Family History, Risk Factors
 INSERT INTO `casemgmt_issue_notes` (`id`, `note_id`)
 VALUES
 ((select max(id) from casemgmt_issue),(select max(note_id) from casemgmt_note));
