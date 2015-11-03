@@ -179,6 +179,7 @@ VALUES
 (0,(select max(lab_no) from hl7TextInfo),'HL7','0000-00-00 00:00:00',NULL);
 
 -- 1
+-- Clinically Measured Observations
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('BP',
@@ -190,6 +191,7 @@ VALUES
 '999998','130/85','sitting position','','2013-09-25 00:00:00','2013-09-25 15:51:13',0);
 
 -- 2
+-- Clinically Measured Observations
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('HT',
@@ -201,6 +203,7 @@ VALUES
 '999998','187','in cm','','2013-09-25 00:00:00','2013-09-25 15:51:13',0);
 
 -- 3
+-- Clinically Measured Observations
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('HR',
@@ -212,6 +215,7 @@ VALUES
 '999998','85','in bpm (nnn) Range:40-180','','2013-09-25 00:00:00','2013-09-25 15:51:13',0);
 
 -- 4
+-- Clinically Measured Observations
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('TEMP',
@@ -223,6 +227,7 @@ VALUES
 '999998','37','degrees celcius','','2013-09-25 00:00:00','2013-09-25 15:51:13',0);
 
 -- 5
+-- Clinically Measured Observations
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('WAIS',
@@ -234,6 +239,7 @@ VALUES
 '999998','92','Waist Circum in cm','','2013-09-25 00:00:00','2013-09-25 15:51:13',0);
 
 -- 6
+-- Clinically Measured Observations
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('WT',
@@ -245,6 +251,7 @@ VALUES
 '999998','95','in kg','','2013-09-25 00:00:00','2013-09-25 15:51:13',0);
 
 -- 7
+-- Clinically Measured Observations
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('BP',
@@ -256,6 +263,7 @@ VALUES
 '999998','140/90','sitting position','','2013-09-26 00:00:00','2013-09-26 15:29:26',0);
 
 -- 8
+-- Clinically Measured Observations
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('BP',
@@ -267,6 +275,7 @@ VALUES
 '999998','130/85','sitting position','','2013-09-26 00:00:00','2013-09-26 15:30:49',0);
 
 -- 9
+-- Clinically Measured Observations
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('HT',
@@ -278,6 +287,7 @@ VALUES
 '999998','160','in cm','','2013-09-26 00:00:00','2013-09-26 15:30:49',0);
 
 -- 10
+-- Clinically Measured Observations
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('WT',
@@ -287,7 +297,7 @@ VALUES
   and year_of_birth='1950' and month_of_birth='02' and date_of_birth='14'
   and hin='448000010'),
 '999998','85','in kg','','2013-09-26 00:00:00','2013-09-26 15:30:49',0);
-
+-- Labs
 -- was lab 24
 INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
 VALUES
@@ -303,6 +313,7 @@ VALUES
 (select max(lab_no) from hl7TextInfo),
 'HL7','0000-00-00 00:00:00',NULL);
 -- 11
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -327,6 +338,7 @@ VALUES
 ((select max(id) from measurements), 'other_id','0-0');
 
 -- 12
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('EGFR',
@@ -350,6 +362,7 @@ VALUES
 ((select max(id) from measurements), 'unit','mL/min'),
 ((select max(id) from measurements), 'range','>=60');
 
+-- Labs
 -- was lab 25
 INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
 VALUES
@@ -365,6 +378,7 @@ VALUES
 (select max(lab_no) from hl7TextInfo),
 'HL7','0000-00-00 00:00:00',NULL);
 -- 13
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -388,7 +402,7 @@ VALUES
 ((select max(id) from measurements), 'unit','umol/L'),
 ((select max(id) from measurements), 'other_id','0-0');
 
-
+-- Labs
 -- was lab 26
 INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
 VALUES
@@ -426,7 +440,7 @@ VALUES
 ((select max(id) from measurements),'olis_status','F'),
 ((select max(id) from measurements),'unit','umol/L'),
 ((select max(id) from measurements),'other_id','0-0');
-
+-- Labs
 -- was lab 27
 INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
 VALUES
@@ -467,6 +481,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-0');
 
 -- 16
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -491,6 +506,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-1');
 
 -- 17
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('A1C',
@@ -516,6 +532,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-2');
 
 -- 18
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -540,6 +557,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-3');
 
 -- was lab 28
+-- Labs
 INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
 VALUES
 ((SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=(SELECT DATABASE() FROM DUAL) AND TABLE_NAME='hl7TextInfo'),'F','448000010','A',105,'2013-06-20 13:24:44',NULL,'BOB MDCARE','HAEM1','SUGAR','MARY','F','11-222075060',NULL,NULL,NULL);
@@ -554,6 +572,7 @@ VALUES
 (select max(lab_no) from hl7TextInfo),
 'HL7','0000-00-00 00:00:00',NULL);
 -- 19
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -579,6 +598,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-0');
 
 -- 20
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -603,6 +623,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-1');
 
 -- 21
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('A1C',
@@ -628,6 +649,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-2');
 
 -- 22
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -652,6 +674,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-3');
 
 -- 23
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -677,6 +700,7 @@ VALUES
 
 
 -- was lab 9
+-- Labs
 INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
 VALUES
 ((SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=(SELECT DATABASE() FROM DUAL) AND TABLE_NAME='hl7TextInfo'),'M','9055555555','A',128,'2013-06-27 12:13:29',NULL,'BOB MDCARE','HAEM1/HAEM3/CHEM4/CHEM29/REFER1','EXCELLERIS','APATIENT','F','13-999955528',NULL,NULL,NULL);
@@ -691,6 +715,7 @@ VALUES
 (select max(lab_no) from hl7TextInfo),
 'HL7','0000-00-00 00:00:00',NULL);
 -- 24
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -716,6 +741,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-0');
 
 -- 25
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -741,6 +767,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-1');
 
 -- 26
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -766,6 +793,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-2');
 
 -- 27
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -790,6 +818,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-3');
 
 -- 28
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -815,6 +844,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-4');
 
 -- 29
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -840,6 +870,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-5');
 
 -- 30
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -865,6 +896,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-6');
 
 -- 31
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -890,6 +922,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-7');
 
 -- 32
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -915,6 +948,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-9');
 
 -- 33
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -940,6 +974,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-9');
 
 -- 34
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -965,6 +1000,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-10');
 
 -- 35
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -990,6 +1026,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-11');
 
 -- 36
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1015,6 +1052,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-12');
 
 -- 37
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1040,6 +1078,7 @@ VALUES
 ((select max(id) from measurements),'other_id','0-13');
 
 -- 38
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('INR',
@@ -1064,6 +1103,7 @@ VALUES
 ((select max(id) from measurements),'other_id','1-0');
 
 -- 39
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1089,6 +1129,7 @@ VALUES
 ((select max(id) from measurements),'other_id','2-0');
 
 -- 40
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('SCR',
@@ -1114,6 +1155,7 @@ VALUES
 ((select max(id) from measurements),'other_id','3-0');
 
 -- 41
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('EGFR',
@@ -1138,6 +1180,7 @@ VALUES
 ((select max(id) from measurements),'range','>=60');
 
 -- 42
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1163,6 +1206,7 @@ VALUES
 ((select max(id) from measurements),'other_id','4-0');
 
 -- 43
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1188,6 +1232,7 @@ VALUES
 ((select max(id) from measurements),'other_id','5-0');
 
 -- 44
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1212,6 +1257,7 @@ VALUES
 ((select max(id) from measurements),'other_id','6-0');
 
 -- 45
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1236,6 +1282,7 @@ VALUES
 ((select max(id) from measurements),'other_id','6-1');
 
 -- 46
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1261,6 +1308,7 @@ VALUES
 ((select max(id) from measurements),'other_id','7-0');
 
 -- 47
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1286,6 +1334,7 @@ VALUES
 ((select max(id) from measurements),'other_id','8-0');
 
 -- 48
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('ALT',
@@ -1310,6 +1359,7 @@ VALUES
 ((select max(id) from measurements),'other_id','9-0');
 
 -- 49
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1334,6 +1384,7 @@ VALUES
 ((select max(id) from measurements),'other_id','10-0');
 
 -- 50
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',
@@ -1359,6 +1410,7 @@ VALUES
 ((select max(id) from measurements),'other_id','11-0');
 
 -- 51
+-- Labs
 INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
 VALUES
 ('',

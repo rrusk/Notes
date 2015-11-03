@@ -28,6 +28,525 @@ INSERT INTO `allergies` (`demographic_no`, `entry_date`, `DESCRIPTION`, `HICL_SE
 VALUES
 ((select max(demographic_no) from demographic),
 '2013-09-26','PENICILLINS, COMBINATIONS WITH OTHER ANTIBACTERIAL',NULL,NULL,NULL,NULL,8,NULL,'43507',0,'1935-01-01',NULL,'4','4',NULL,NULL,0,'2013-03-05 13:30:47',NULL);
+-- Clinically Measured Observations
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('BP',(select max(demographic_no) from demographic),
+'999998','130/85','sitting position','','2013-09-25 00:00:00','2013-09-25 15:51:13',0),
+('HT',(select max(demographic_no) from demographic),
+'999998','187','in cm','','2013-09-25 00:00:00','2013-09-25 15:51:13',0),
+('HR',(select max(demographic_no) from demographic),
+'999998','85','in bpm (nnn) Range:40-180','','2013-09-25 00:00:00','2013-09-25 15:51:13',0),
+('TEMP',(select max(demographic_no) from demographic),
+'999998','37','degrees celcius','','2013-09-25 00:00:00','2013-09-25 15:51:13',0),
+('WAIS',(select max(demographic_no) from demographic),
+'999998','92','Waist Circum in cm','','2013-09-25 00:00:00','2013-09-25 15:51:13',0),
+('WT',(select max(demographic_no) from demographic),
+'999998','95','in kg','','2013-09-25 00:00:00','2013-09-25 15:51:13',0);
+-- Labs
+INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
+VALUES
+((SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=(SELECT DATABASE() FROM DUAL) AND TABLE_NAME='hl7TextInfo'),'M','9055555555','A',128,'2013-06-27 12:13:29',NULL,'BOB MDCARE','HAEM1/HAEM3/CHEM4/CHEM29/REFER1','EXCELLERIS','APATIENT','F','13-999955528',NULL,NULL,NULL);
+INSERT INTO `patientLabRouting` (`demographic_no`, `lab_no`, `lab_type`,  `created`, `dateModified`)
+VALUES
+((select max(demographic_no) from demographic),
+(select max(lab_no) from hl7TextInfo),
+'HL7','0000-00-00 00:00:00',NULL);
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','8.0','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','6690-2'),
+((select max(id) from measurements),'name','WBC'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','giga/L'),
+((select max(id) from measurements),'minimum','4.0'),
+((select max(id) from measurements),'other_id','0-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','4.71','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','789-8'),
+((select max(id) from measurements),'name','RBC'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','tera/L'),
+((select max(id) from measurements),'minimum','4.20'),
+((select max(id) from measurements),'other_id','0-1');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','158','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','718-7'),
+((select max(id) from measurements),'name','Hemoglobin'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','g/L'),
+((select max(id) from measurements),'minimum','133'),
+((select max(id) from measurements),'other_id','0-2');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','0.46','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','4544-3'),
+((select max(id) from measurements),'name','Hematocrit'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'minimum','0.38'),
+((select max(id) from measurements),'other_id','0-3');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','99','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','A'),
+((select max(id) from measurements),'identifier','787-2'),
+((select max(id) from measurements),'name','MCV'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','fl'),
+((select max(id) from measurements),'minimum','82'),
+((select max(id) from measurements),'other_id','0-4');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','33.5','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','785-6'),
+((select max(id) from measurements),'name','MCH'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','pg'),
+((select max(id) from measurements),'minimum','27.5'),
+((select max(id) from measurements),'other_id','0-5');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','341','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','786-4'),
+((select max(id) from measurements),'name','MCHC'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','g/L'),
+((select max(id) from measurements),'minimum','305'),
+((select max(id) from measurements),'other_id','0-6');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','12.6','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','788-0'),
+((select max(id) from measurements),'name','RDW'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','%'),
+((select max(id) from measurements),'minimum','11.5'),
+((select max(id) from measurements),'other_id','0-7');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','295','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','751-8'),
+((select max(id) from measurements),'name','Neutrophils'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','giga/L'),
+((select max(id) from measurements),'minimum','2.0'),
+((select max(id) from measurements),'other_id','0-9');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','6.0','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','751-8'),
+((select max(id) from measurements),'name','Neutrophils'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','giga/L'),
+((select max(id) from measurements),'minimum','2.0'),
+((select max(id) from measurements),'other_id','0-9');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','1.6','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','731-0'),
+((select max(id) from measurements),'name','Lymphocytes'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','giga/L'),
+((select max(id) from measurements),'minimum','1.0'),
+((select max(id) from measurements),'other_id','0-10');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','0.4','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','742-7'),
+((select max(id) from measurements),'name','Monocytes'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','giga/L'),
+((select max(id) from measurements),'minimum','0.1'),
+((select max(id) from measurements),'other_id','0-11');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','0.1','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','711-2'),
+((select max(id) from measurements),'name','Eosinophils'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','giga/L'),
+((select max(id) from measurements),'minimum','0.0'),
+((select max(id) from measurements),'other_id','0-12');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','0.0','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','704-7'),
+((select max(id) from measurements),'name','Basophils'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','giga/L'),
+((select max(id) from measurements),'minimum','0.0'),
+((select max(id) from measurements),'other_id','0-13');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('INR',(select max(demographic_no) from demographic),
+'0','1.0','INR Blood Work','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','6301-6'),
+((select max(id) from measurements),'name','INR'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'minimum','0.8'),
+((select max(id) from measurements),'other_id','1-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','5.2','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','14749-6'),
+((select max(id) from measurements),'name','Glucose Random'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','mmol/L'),
+((select max(id) from measurements),'minimum','3.3'),
+((select max(id) from measurements),'other_id','2-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('SCR',(select max(demographic_no) from demographic),
+'0','68','in umol/L','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','A'),
+((select max(id) from measurements),'identifier','14682-9'),
+((select max(id) from measurements),'name','Creatinine'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','umol/L'),
+((select max(id) from measurements),'minimum','70'),
+((select max(id) from measurements),'other_id','3-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('EGFR',(select max(demographic_no) from demographic),
+'0','113','in ml/min','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','33914-3'),
+((select max(id) from measurements),'name','Estimated GFR'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','mL/min'),
+((select max(id) from measurements),'range','>=60');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','317','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','14933-6'),
+((select max(id) from measurements),'name','Uric Acid'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','umol/L'),
+((select max(id) from measurements),'minimum','234'),
+((select max(id) from measurements),'other_id','4-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','45','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','1751-7'),
+((select max(id) from measurements),'name','Albumin'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','g/L'),
+((select max(id) from measurements),'minimum','35'),
+((select max(id) from measurements),'other_id','5-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','16','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','14631-6'),
+((select max(id) from measurements),'name','Total Bilirubin'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','umol/L'),
+((select max(id) from measurements),'other_id','6-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','5','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','14629-0'),
+((select max(id) from measurements),'name','Direct Bilirubin'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','umol/L'),
+((select max(id) from measurements),'other_id','6-1');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','74','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','6768-6'),
+((select max(id) from measurements),'name','Alkaline Phosphatase'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','U/L'),
+((select max(id) from measurements),'minimum','48'),
+((select max(id) from measurements),'other_id','7-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','10','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','2324-2'),
+((select max(id) from measurements),'name','Gamma GT'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','U/L'),
+((select max(id) from measurements),'minimum','10'),
+((select max(id) from measurements),'other_id','8-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('ALT',(select max(demographic_no) from demographic),
+'0','19','in U/L','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','1742-6'),
+((select max(id) from measurements),'name','ALT'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','U/L'),
+((select max(id) from measurements),'other_id','9-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','25','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','1920-8'),
+((select max(id) from measurements),'name','AST'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','U/L'),
+((select max(id) from measurements),'other_id','10-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','1.0','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','2524-7'),
+((select max(id) from measurements),'name','Lactic Acid'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','mmol/L'),
+((select max(id) from measurements),'minimum','0.7'),
+((select max(id) from measurements),'other_id','11-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','Slight','','','2013-05-31 10:20:12','2013-09-26 03:56:15',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','A'),
+((select max(id) from measurements),'identifier','46425-5'),
+((select max(id) from measurements),'name','Lipemia'),
+((select max(id) from measurements),'labname','LIFELABS'),
+((select max(id) from measurements),'accession','13-999955528'),
+((select max(id) from measurements),'request_datetime','2013-05-27 13:40:00'),
+((select max(id) from measurements),'datetime','2013-05-31 10:20:12'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'other_id','12-0');
 -- Immunizations
 INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
 VALUES
@@ -147,6 +666,54 @@ INSERT INTO `allergies` (`demographic_no`, `entry_date`, `DESCRIPTION`, `HICL_SE
 VALUES
 ((select max(demographic_no) from demographic),
 '2013-09-26','SULFADIAZINE',NULL,NULL,NULL,NULL,8,'Hives','43750',0,'1970-01-01',NULL,'2','2',NULL,NULL,0,'2013-03-05 14:27:08',NULL);
+-- Clinically Measured Observations
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('BP',(select max(demographic_no) from demographic),
+'999998','140/90','sitting position','','2013-09-26 00:00:00','2013-09-26 15:29:26',0);
+-- Labs
+INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
+VALUES
+((SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=(SELECT DATABASE() FROM DUAL) AND TABLE_NAME='hl7TextInfo'),'M','448000002','A',102,'2013-06-07 14:17:47',NULL,'BOB MDCARE','CHEM2','IVE','MARK','F','11-222075056',NULL,NULL,NULL);
+INSERT INTO `patientLabRouting` (`demographic_no`, `lab_no`, `lab_type`,  `created`, `dateModified`)
+VALUES
+((select max(demographic_no) from demographic),
+(select max(lab_no) from hl7TextInfo),
+'HL7','0000-00-00 00:00:00',NULL);
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','161.2','','','2013-06-07 11:20:00','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements), 'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements), 'abnormal','A'),
+((select max(id) from measurements), 'identifier','45066-8'),
+((select max(id) from measurements), 'name','Creatinine'),
+((select max(id) from measurements), 'labname','UVIC'),
+((select max(id) from measurements), 'accession','11-222075056'),
+((select max(id) from measurements), 'request_datetime','2013-06-07 10:44:00'),
+((select max(id) from measurements), 'datetime','2013-06-07 11:20:00'),
+((select max(id) from measurements), 'olis_status','F'),
+((select max(id) from measurements), 'unit','umol/L'),
+((select max(id) from measurements), 'other_id','0-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('EGFR',(select max(demographic_no) from demographic),
+'0','113','in ml/min','','2013-06-07 11:20:00','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements), 'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements), 'abnormal','N'),
+((select max(id) from measurements), 'identifier','33914-3'),
+((select max(id) from measurements), 'name','Estimated GFR'),
+((select max(id) from measurements), 'labname','UVIC'),
+((select max(id) from measurements), 'accession','11-222075056'),
+((select max(id) from measurements), 'request_datetime','2013-06-07 10:44:00'),
+((select max(id) from measurements), 'datetime','2013-06-07 11:20:00'),
+((select max(id) from measurements), 'olis_status','F'),
+((select max(id) from measurements), 'unit','mL/min'),
+((select max(id) from measurements), 'range','>=60');
 -- Immunizations
 INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
 VALUES
@@ -236,6 +803,86 @@ VALUES
  NULL,NULL,NULL,'','-1','Unknown',
  NULL,'999998','2013-09-26 00:00:00'
 );
+-- Labs
+INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
+VALUES
+((SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=(SELECT DATABASE() FROM DUAL) AND TABLE_NAME='hl7TextInfo'),'F','448000003','A',104,'2013-06-20 13:24:44',NULL,'BOB MDCARE','HAEM1','CHARLES','JOAN','F','11-222075059',NULL,NULL,NULL);
+-- 25 labno=27
+INSERT INTO `patientLabRouting` (`demographic_no`, `lab_no`, `lab_type`,  `created`, `dateModified`)
+VALUES
+((select max(demographic_no) from demographic),
+(select max(lab_no) from hl7TextInfo),
+'HL7','0000-00-00 00:00:00',NULL);
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','4.9','','','2013-06-20 13:24:44','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','14771-0'),
+((select max(id) from measurements),'name','Glucose Fasting'),
+((select max(id) from measurements),'labname','UVIC'),
+((select max(id) from measurements),'accession','11-222075059'),
+((select max(id) from measurements),'request_datetime','2013-06-20 12:50:00'),
+((select max(id) from measurements),'datetime','2013-06-20 13:24:44'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','mmol/L'),
+((select max(id) from measurements),'minimum','3.6'),
+((select max(id) from measurements),'other_id','0-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','35','','','2013-06-20 13:24:44','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','58453-2'),
+((select max(id) from measurements),'name','Occult Blood Immunochemical'),
+((select max(id) from measurements),'labname','UVIC'),
+((select max(id) from measurements),'accession','11-222075059'),
+((select max(id) from measurements),'request_datetime','2013-06-20 12:50:00'),
+((select max(id) from measurements),'datetime','2013-06-20 13:24:44'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','ng/mL'),
+((select max(id) from measurements),'other_id','0-1');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('A1C',(select max(demographic_no) from demographic),
+'0','6.4','Range:0.040-0.200','','2013-06-20 13:24:44','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','A'),
+((select max(id) from measurements),'identifier','4548-4'),
+((select max(id) from measurements),'name','Hemoglobin A1c'),
+((select max(id) from measurements),'labname','UVIC'),
+((select max(id) from measurements),'accession','11-222075059'),
+((select max(id) from measurements),'request_datetime','2013-06-20 12:50:00'),
+((select max(id) from measurements),'datetime','2013-06-20 13:24:44'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','%'),
+((select max(id) from measurements),'minimum','4.8'),
+((select max(id) from measurements),'other_id','0-2');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','2.4','','','2013-06-20 13:24:44','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','39469-2'),
+((select max(id) from measurements),'name','LDL Cholesterol'),
+((select max(id) from measurements),'labname','UVIC'),
+((select max(id) from measurements),'accession','11-222075059'),
+((select max(id) from measurements),'request_datetime','2013-06-20 12:50:00'),
+((select max(id) from measurements),'datetime','2013-06-20 13:24:44'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','mmol/L'),
+((select max(id) from measurements),'other_id','0-3');
 -- Immunizatons
 INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
 VALUES
@@ -441,6 +1088,32 @@ INSERT INTO `allergies` (`demographic_no`, `entry_date`, `DESCRIPTION`, `HICL_SE
 VALUES
 ((select max(demographic_no) from demographic),
 '2013-09-26','PEANUT OIL',NULL,NULL,NULL,NULL,11,'anaphylaxis','45043',0,NULL,'8','3','4',NULL,NULL,0,'2013-03-05 14:55:45',NULL);
+-- Labs
+INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
+VALUES
+((SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=(SELECT DATABASE() FROM DUAL) AND TABLE_NAME='hl7TextInfo'),'F','448000005',NULL,101,'2013-06-07 14:17:47',NULL,'BOB MDCARE','CHEM2','CHAN','DALE','F','11-222075057',NULL,NULL,NULL);
+INSERT INTO `patientLabRouting` (`demographic_no`, `lab_no`, `lab_type`,  `created`, `dateModified`)
+VALUES
+((select max(demographic_no) from demographic),
+(select max(lab_no) from hl7TextInfo),
+'HL7','0000-00-00 00:00:00',NULL);
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','131.6','','','2013-06-07 11:20:00','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements), 'abnormal','N'),
+((select max(id) from measurements), 'identifier','45066-8'),
+((select max(id) from measurements), 'name','Creatinine'),
+((select max(id) from measurements), 'labname','UVIC'),
+((select max(id) from measurements), 'accession','11-222075057'),
+((select max(id) from measurements), 'request_datetime','2013-06-07 10:44:00'),
+((select max(id) from measurements), 'datetime','2013-06-07 11:20:00'),
+((select max(id) from measurements), 'olis_status','F'),
+((select max(id) from measurements), 'unit','umol/L'),
+((select max(id) from measurements), 'other_id','0-0');
 -- Medications
 INSERT INTO `drugs`
 (`provider_no`, `demographic_no`, `rx_date`, `end_date`, `written_date`, `pickup_datetime`, `BN`, `GCN_SEQNO`, `customName`, `takemin`, `takemax`, `freqcode`, `duration`, `durunit`, `quantity`, `repeat`, `last_refill_date`, `nosubs`, `prn`, `special`, `special_instruction`, `archived`, `GN`, `ATC`, `script_no`, `regional_identifier`, `unit`, `method`, `route`, `drug_form`, `create_date`, `dosage`, `custom_instructions`, `unitName`, `custom_note`, `long_term`, `non_authoritative`, `past_med`, `patient_compliance`, `outside_provider_name`, `outside_provider_ohip`, `archived_reason`, `archived_date`, `hide_from_drug_profile`, `eTreatmentType`, `rxStatus`, `dispense_interval`, `refill_duration`, `refill_quantity`, `hide_cpp`, `position`, `comment`, `start_date_unknown`, `lastUpdateDate`, `dispenseInternal`)
@@ -634,6 +1307,32 @@ VALUES
  NULL,NULL,NULL,'','-1','Unknown',
  NULL,'999998','2013-09-26 00:00:00'
 );
+-- Labs
+INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
+VALUES
+((SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=(SELECT DATABASE() FROM DUAL) AND TABLE_NAME='hl7TextInfo'),'F','448000008','A',101,'2013-06-07 14:17:47',NULL,'BOB MDCARE','CHEM2','THOMAS','JILL','F','11-222075058',NULL,NULL,NULL);
+INSERT INTO `patientLabRouting` (`demographic_no`, `lab_no`, `lab_type`,  `created`, `dateModified`)
+VALUES
+((select max(demographic_no) from demographic),
+(select max(lab_no) from hl7TextInfo),
+'HL7','0000-00-00 00:00:00',NULL);
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','158.4','','','2013-06-07 11:20:00','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','A'),
+((select max(id) from measurements),'identifier','45066-8'),
+((select max(id) from measurements),'name','Creatinine'),
+((select max(id) from measurements),'labname','UVIC'),
+((select max(id) from measurements),'accession','11-222075058'),
+((select max(id) from measurements),'request_datetime','2013-06-07 10:44:00'),
+((select max(id) from measurements),'datetime','2013-06-07 11:20:00'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','umol/L'),
+((select max(id) from measurements),'other_id','0-0');
 -- Medications
 INSERT INTO `drugs`
 (`provider_no`, `demographic_no`, `rx_date`, `end_date`, `written_date`, `pickup_datetime`, `BN`, `GCN_SEQNO`, `customName`, `takemin`, `takemax`, `freqcode`, `duration`, `durunit`, `quantity`, `repeat`, `last_refill_date`, `nosubs`, `prn`, `special`, `special_instruction`, `archived`, `GN`, `ATC`, `script_no`, `regional_identifier`, `unit`, `method`, `route`, `drug_form`, `create_date`, `dosage`, `custom_instructions`, `unitName`, `custom_note`, `long_term`, `non_authoritative`, `past_med`, `patient_compliance`, `outside_provider_name`, `outside_provider_ohip`, `archived_reason`, `archived_date`, `hide_from_drug_profile`, `eTreatmentType`, `rxStatus`, `dispense_interval`, `refill_duration`, `refill_quantity`, `hide_cpp`, `position`, `comment`, `start_date_unknown`, `lastUpdateDate`, `dispenseInternal`)
@@ -732,6 +1431,111 @@ VALUES
  NULL,NULL,NULL,'','-1','Unknown',
  NULL,'999998','2013-09-26 00:00:00'
 );
+-- Clinically Measured Observations
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('BP',(select max(demographic_no) from demographic),
+'999998','130/85','sitting position','','2013-09-26 00:00:00','2013-09-26 15:30:49',0),
+('HT',(select max(demographic_no) from demographic),
+'999998','160','in cm','','2013-09-26 00:00:00','2013-09-26 15:30:49',0),
+('WT',(select max(demographic_no) from demographic),
+'999998','85','in kg','','2013-09-26 00:00:00','2013-09-26 15:30:49',0);
+-- Labs
+INSERT INTO `hl7TextInfo` (`lab_no`, `sex`, `health_no`, `result_status`, `final_result_count`, `obr_date`, `priority`, `requesting_client`, `discipline`, `last_name`, `first_name`, `report_status`, `accessionNum`, `filler_order_num`, `sending_facility`, `label`)
+VALUES
+((SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=(SELECT DATABASE() FROM DUAL) AND TABLE_NAME='hl7TextInfo'),'F','448000010','A',105,'2013-06-20 13:24:44',NULL,'BOB MDCARE','HAEM1','SUGAR','MARY','F','11-222075060',NULL,NULL,NULL);
+INSERT INTO `patientLabRouting` (`demographic_no`, `lab_no`, `lab_type`,  `created`, `dateModified`)
+VALUES
+((select max(demographic_no) from demographic),
+(select max(lab_no) from hl7TextInfo),
+'HL7','0000-00-00 00:00:00',NULL);
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','5.1','','','2013-06-20 13:24:44','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','14771-0'),
+((select max(id) from measurements),'name','Glucose Fasting'),
+((select max(id) from measurements),'labname','UVIC'),
+((select max(id) from measurements),'accession','11-222075060'),
+((select max(id) from measurements),'request_datetime','2013-06-20 12:50:00'),
+((select max(id) from measurements),'datetime','2013-06-20 13:24:44'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','mmol/L'),
+((select max(id) from measurements),'minimum','3.6'),
+((select max(id) from measurements),'other_id','0-0');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','38','','','2013-06-20 13:24:44','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','58453-2'),
+((select max(id) from measurements),'name','Occult Blood Immunochemical'),
+((select max(id) from measurements),'labname','UVIC'),
+((select max(id) from measurements),'accession','11-222075060'),
+((select max(id) from measurements),'request_datetime','2013-06-20 12:50:00'),
+((select max(id) from measurements),'datetime','2013-06-20 13:24:44'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','ng/mL'),
+((select max(id) from measurements),'other_id','0-1');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('A1C',(select max(demographic_no) from demographic),
+'0','6.1','Range:0.040-0.200','','2013-06-20 13:24:44','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','A'),
+((select max(id) from measurements),'identifier','4548-4'),
+((select max(id) from measurements),'name','Hemoglobin A1c'),
+((select max(id) from measurements),'labname','UVIC'),
+((select max(id) from measurements),'accession','11-222075060'),
+((select max(id) from measurements),'request_datetime','2013-06-20 12:50:00'),
+((select max(id) from measurements),'datetime','2013-06-20 13:24:44'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','%'),
+((select max(id) from measurements),'minimum','4.8'),
+((select max(id) from measurements),'other_id','0-2');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','2.9','','','2013-06-20 13:24:44','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','39469-2'),
+((select max(id) from measurements),'name','LDL Cholesterol'),
+((select max(id) from measurements),'labname','UVIC'),
+((select max(id) from measurements),'accession','11-222075060'),
+((select max(id) from measurements),'request_datetime','2013-06-20 12:50:00'),
+((select max(id) from measurements),'datetime','2013-06-20 13:24:44'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','mmol/L'),
+((select max(id) from measurements),'other_id','0-3');
+INSERT INTO `measurements` (`type`, `demographicNo`, `providerNo`, `dataField`, `measuringInstruction`, `comments`, `dateObserved`, `dateEntered`, `appointmentNo`)
+VALUES
+('',(select max(demographic_no) from demographic),
+'0','45','','','2013-06-20 13:24:44','2013-09-26 03:54:44',0);
+INSERT INTO `measurementsExt` (`measurement_id`, `keyval`, `val`)
+VALUES
+((select max(id) from measurements),'lab_no',(select lab_no from hl7TextInfo where id=(select max(id) from hl7TextInfo))),
+((select max(id) from measurements),'abnormal','N'),
+((select max(id) from measurements),'identifier','1751-7'),
+((select max(id) from measurements),'name','Albumin'),
+((select max(id) from measurements),'labname','UVIC'),
+((select max(id) from measurements),'accession','11-222075060'),
+((select max(id) from measurements),'request_datetime','2013-06-20 12:50:00'),
+((select max(id) from measurements),'datetime','2013-06-20 13:24:44'),
+((select max(id) from measurements),'olis_status','F'),
+((select max(id) from measurements),'unit','g/L'),
+((select max(id) from measurements),'range','687');
 -- Immunizations
 INSERT INTO `preventions` (`demographic_no`, `creation_date`, `prevention_date`, `provider_no`, `provider_name`, `prevention_type`, `deleted`, `refused`, `next_date`, `never`, `creator`, `lastUpdateDate`)
 VALUES
