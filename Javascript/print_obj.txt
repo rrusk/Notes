@@ -1,0 +1,3 @@
+var str = JSON.stringify(theObj); // converts object to Json string
+console.log("theObj="+theObj); // send JSON String to console
+theObj=JSON.parse(str); // restore Json string to object
