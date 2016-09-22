@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+#If iso9960 support disappears during VirtualBox tools upgrade try:
+#sudo apt-get install --reinstall linux-image-$(uname -r)
+#
+#To reset authorized_keys file to default:
+# wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O ~/.ssh/authorized_keys
+# chmod 700 ~/.ssh
+# chmod 600 ~/.ssh/authorized_keys
+# chown -R vagrant:vagrant ~/.ssh
+#Then issue another vagrant command like 'vagrant halt' and default file
+#is replaced by one specific to computer
+#
+VERSION="5.0.26"
+GUESTADDITIONS="VBoxGuestAdditions_$VERSION.iso"
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install linux-headers-$(uname -r) build-essential dkms
+wget http://download.virtualbox.org/virtualbox/"$VERSION"/"$GUESTADDITIONS"
+sudo mkdir -p /media/VBoxGuestAdditions
+sudo mount -o loop,ro $GUESTADDITIONS /media/VBoxGuestAdditions
+echo "run these commands and reboot:"
+echo sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run 
+echo sudo umount /media/VBoxGuestAdditions
+echo sudo rmdir /media/VBoxGuestAdditions
+echo sudo rm -i $GUESTADDITIONS

@@ -1,0 +1,16 @@
+Inside Vagrant guest (assuming Virtualbox environment):
+1) remove old kernels
+2) apt-get clean
+3) remove any unnecessary tomcat deployments
+   eg. $CATALINA_BASE/webapps/oscar12, etc.
+4) Make VM compressable:
+   dd if=/dev/zero of=/tmp.dat
+   Remove /tmp.dat after all space is consumed.
+5) Exit guest
+6) vagrant halt
+    -to shut down guest
+7) Identify VM using
+   vboxmanage list vms
+8) Make vbox
+   eg.
+   vagrant package --base OscarQA_58080_default_1463173098695_45971 --output oscarQA_48080_v1.0.box
