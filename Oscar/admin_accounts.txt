@@ -1,0 +1,1 @@
+select u.user_name,s.provider_no,p.first_name,p.last_name from security u inner join secUserRole s on s.provider_no=u.provider_no inner join provider p on s.provider_no=p.provider_no where s.role_name='admin' order by ABS(s.provider_no);

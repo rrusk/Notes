@@ -6,11 +6,13 @@ Inside Vagrant guest (assuming Virtualbox environment):
 4) Make VM compressable:
    dd if=/dev/zero of=/tmp.dat
    Remove /tmp.dat after all space is consumed.
-5) Exit guest
-6) vagrant halt
+5) Set ssh keys back to default:
+wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O ~/.ssh/authorized_keys
+6) Exit guest
+7) vagrant halt
     -to shut down guest
-7) Identify VM using
+8) Identify VM using
    vboxmanage list vms
-8) Make vbox
+9) Make vbox
    eg.
    vagrant package --base OscarQA_58080_default_1463173098695_45971 --output oscarQA_48080_v1.0.box
