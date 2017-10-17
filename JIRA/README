@@ -1,0 +1,11 @@
+The JIRA Cloud REST API Reference is at
+https://docs.atlassian.com/jira/REST/cloud/.
+
+Links to all JIRA APIs are provided at
+https://developer.atlassian.com/jiradev/jira-apis.
+
+To get started building JQL queries start with the Basic Search in the
+JIRA web page, selecting menu items from the drop-down, etc.  Then
+switch to the Advanced mode which shows the underlying JIRA query
+which can be fine tuned further.  Some documentation on JQL is at
+https://www.atlassian.com/blog/jira-software/jql-the-most-flexible-way-to-search-jira-14.
