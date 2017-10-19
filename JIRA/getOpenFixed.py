@@ -28,9 +28,13 @@ def getIssueKeys(issueList, fixedList, jsonData):
     if 'customfield_11100' not in data['issues'][j]['fields']:
       raise ValueError("JIRRA pullrequest field missing")
     if len(data['issues'][j]['fields']['customfield_11100']) > 2:
-      #print len(data['issues'][j]['fields']['customfield_11100'])
-      #print(data['issues'][j]['fields']['customfield_11100'])
-      fixedList.append(data['issues'][j]['key'])
+      if "state=MERGED" in data['issues'][j]['fields']['customfield_11100']:
+        if data['issues'][j]['fields']['reporter']['name'] == 'sfmigration':
+          print 'WARNING:', data['issues'][j]['key'], 'from Sourceforge Migration'
+        fixedList.append(data['issues'][j]['key'])
+      else:
+        print("Not fixed: ", data['issues'][j]['key'])
+        print(data['issues'][j]['fields']['customfield_11100'])
   return issueList, fixedList, total, startAt
 
 maxNum = 10
@@ -60,4 +64,28 @@ while (count < maxNum and isLast == False):
 print "Total number of Open-Accepted issues: ", total
 print "Number of issues retrieved: ", len(issueList)
 print "Number of potentially 'fixed' issues retrieved: ", len(fixedList)
-print fixedList
+for issue in fixedList:
+  print issue
+
+comment = { 'body': "A Bitbucket Pull Request referencing this bug \
+report has been MERGED into Oscar.  Please update this bug report \
+indicating whether this issue is resolved." }
+
+print "Should the bug reports have this comment added?"
+print comment['body']
+answer = raw_input("Y/N? ")
+if answer.lower() != 'y':
+  print "Quitting"
+  quit()
+
+exclude=['OSCAREMR-3561']
+for i in range(len(fixedList)):
+  if fixedList[i] not in exclude:
+    r = requests.post(baseurl+"/issue/"+fixedList[i]+"/comment",
+                      auth=cred, json=comment)
+    if (r.ok):
+      print "Added comment for ",fixedList[i]
+    else:
+      r.raise_for_status()
+  else:
+    print 'Excluded ',fixedList[i]
