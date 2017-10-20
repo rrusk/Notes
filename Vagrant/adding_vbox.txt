@@ -1,0 +1,17 @@
+$ vagrant box add OscarQA_28080_20171020.box --name "OscarQA"
+$ vagrant box list
+$ vagrant init OscarQA # create Vagrantfile
+$ vi Vagrantfile
+ 1) Will need to forward some host port to 8080 in guest VM
+   config.vm.network "forwarded_port", guest: 8080, host: 28080
+ 2) Increase memory allocation:
+  config.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+  #   vb.gui = true
+  #
+  #   # Customize the amount of memory on the VM:
+    vb.memory = "2048"
+  end
+
+$ vagrant up
+$ vagrant ssh
