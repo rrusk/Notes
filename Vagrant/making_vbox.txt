@@ -2,7 +2,7 @@ Inside Vagrant guest (assuming Virtualbox environment):
 1) remove old kernels
 2) apt-get clean
 3) remove any unnecessary tomcat deployments
-   eg. $CATALINA_BASE/webapps/oscar12, etc.
+   eg. $CATALINA_BASE/webapps/oscar12, $HOME/builds, etc.
 4) Make VM compressable:
    dd if=/dev/zero of=/tmp.dat
    Remove /tmp.dat after all space is consumed.
