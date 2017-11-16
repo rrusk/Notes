@@ -3,7 +3,7 @@ Inside Vagrant guest (assuming Virtualbox environment):
 2) apt-get clean
 3) remove any unnecessary tomcat deployments
    eg. $CATALINA_BASE/webapps/oscar12, $HOME/builds, etc.
-4) Make VM compressable:
+4) Make VM compressable: (DON'T DO THIS IF USING WHOLE DISK ENCRYPTION!)
    dd if=/dev/zero of=/tmp.dat
    Remove /tmp.dat after all space is consumed.
 5) Set ssh keys back to default:
