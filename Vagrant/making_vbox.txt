@@ -7,7 +7,9 @@ Inside Vagrant guest (assuming Virtualbox environment):
    dd if=/dev/zero of=/tmp.dat
    Remove /tmp.dat after all space is consumed.
 5) Set ssh keys back to default:
-wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O ~/.ssh/authorized_keys
+cd ~/.ssh; cat authorized_keys_insecure >> authorized_keys
+(or 
+wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O ~/.ssh/authorized_keys)
 6) Exit guest
 7) vagrant halt
     -to shut down guest
