@@ -6,5 +6,7 @@ sudo ufw limit ssh/tcp  #Limit connections to ssh/tcp to slowdown possible attac
 
 sudo ufw allow from a.b.c.d # Allow connections from specific IP address
 sudo ufw status verbose     # Verbose status report
+sudo ufw status numbered    # shows number of each rule
+sudo ufw delete 3           # deletes rule number 3
 sudo ufw allow from 144.102.63.38 to any port 3003 proto tcp
 sudo ufw delete allow from 144.102.63.38 to any port 3003 proto tcp
