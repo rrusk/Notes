@@ -1,0 +1,7 @@
+From https://stackoverflow.com/questions/2357620/maxlengthfield-in-mysql
+
+SELECT  name, LENGTH(name) AS mlen
+FROM    mytable
+ORDER BY
+        mlen DESC
+LIMIT 1
