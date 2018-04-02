@@ -6,3 +6,5 @@ mysqldump -u root -p --databases db_name > db_name-20140127-dump.sql
 mysqldump -u root -p --databases db_name --no-create-info > x.sql
 #dump table without schema
 mysqldump -u root -p db_name db_table_name --no-create-info  > dump_db_table_name.sql
+#make dump more readable by putting insert statements into multiple lines
+mysqldump -uroot --skip-opt db_name db_table_name
