@@ -1,0 +1,6 @@
+From https://stackoverflow.com/questions/3144647/git-show-all-files-changed-between-two-commits
+Examples:
+Current and previous:
+git log --name-only --pretty=oneline --full-index HEAD^^..HEAD | grep -vE '^[0-9a-f]{40} ' | sort | uniq
+Current and specific earlier commit:
+git log --name-only --pretty=oneline --full-index 8cd3dd544940d7785260d0ad3210bd13aaed9687..HEAD | grep -vE '^[0-9a-f]{40} ' | sort | uniq
