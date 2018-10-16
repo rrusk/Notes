@@ -1,0 +1,2 @@
+Example when searching for INSERT in SQL file with very long lines:
+N=50;grep -ERo ".{0,$N}INSERT.{0,$N}" *.sql

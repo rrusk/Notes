@@ -1,0 +1,40 @@
+	//  Method to write HttpServletRequest information into Tomcat log.
+	//  Requires inclusion of the following headers:
+	//    import javax.servlet.http.HttpServletRequest;
+	//	  import java.util.Enumeration;
+	//	  import java.util.Map;
+	//	  import javax.servlet.http.Cookie;
+	//  Based on https://javatutorial.net/servlet-request-info-example
+	private void logServletRequestInfo(HttpServletRequest request) {
+		logger.info("=== Beginning of HttpServletRequest Information ===");
+		logger.info("=== Paths ===");
+		logger.info("Request URL : " + request.getRequestURL());
+		logger.info("Request URI : " + request.getRequestURI());
+		logger.info("Servlet path : " + request.getServletPath());
+
+		logger.info("=== Headers ===");
+		Enumeration<String> e = request.getHeaderNames();
+		while(e.hasMoreElements()){
+			String param = e.nextElement();
+			logger.info(param + " : " + request.getHeader(param));
+		}
+
+		logger.info("=== Parameters ===");
+		Map<String, String[]> paramsMap = request.getParameterMap();
+		for (String key : paramsMap.keySet()) {
+			logger.info(key + " : " + request.getParameter(key));
+		}
+
+		logger.info("=== Session ===");
+		// returns 0:0:0:0:0:0:0:1 if executed from localhost
+		logger.info("Client IP address : " + request.getRemoteAddr());
+		logger.info("Session ID : " + request.getRequestedSessionId());
+		// Cookie objects the client sent with this request
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				logger.info(cookie.getName() + ";");
+			}
+		}
+		logger.info("=== End of HttpServletRequest Information ===");
+	}
