@@ -1,0 +1,16 @@
+On Windows test machine:
+
+One remote is github:
+git clone git@github.com:rrusk/BallroomMusicPlayer
+
+Other remote is Linux desktop used for development, accessed via a Samba share:
+git remote add sherlock file:///z/git/BallroomMusicPlayer
+
+Do some development on Linux host that isn't pushed to github and test it on Windows:
+git fetch --all
+git reset --hard sherlock/master
+
+Eventually when tested code is checked into github
+
+git fetch --all
+git reset --hard origin/master

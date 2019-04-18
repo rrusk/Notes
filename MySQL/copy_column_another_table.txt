@@ -1,0 +1,3 @@
+select max(id) from demographicSets; # find last row
+insert into demographicSets (demographic_no) select demographic_no from demographic;
+update demographicSets set set_name="fullset" where id>44756;

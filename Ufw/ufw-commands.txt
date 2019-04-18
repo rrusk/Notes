@@ -10,3 +10,4 @@ sudo ufw status numbered    # shows number of each rule
 sudo ufw delete 3           # deletes rule number 3
 sudo ufw allow from 144.102.63.38 to any port 3003 proto tcp
 sudo ufw delete allow from 144.102.63.38 to any port 3003 proto tcp
+sudo ufw allow from 192.168.0.0/16 to any app Samba

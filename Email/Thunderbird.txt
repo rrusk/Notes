@@ -1,0 +1,22 @@
+From https://support.mozilla.org/en-US/questions/1204863
+
+To stop getting warning about less secure apps:
+
+I had this issue today after the "less secure apps" thing from Google. To fix the issue is simple and also keep your access more safe.
+
+1. Turn off "less secure apps" and remove Thinderbird from your Google security settings.
+https://support.google.com/accounts/answer/6010255?hl=en 
+
+2. Open Thunderbird, select your email account on the left and go Tools > Account Settings (just ignore any issues with login and passwords for now)
+
+3. Go to Server > Authentication Method and select OAuth2.
+
+4. Down the left, go to Outgoing Server (SMTP), on the right panel you should see "Google Mail (Default)", click Edit, on "Authentication Method" select OAuth2
+
+5. Click OK to go back to main window.
+
+6. Click on "Receive Messages", Thunderbird will show up a Google authentication window, fill in your email and password.
+
+7. Done!
+
+This is done only once, now you have a more secure access back to Gmail.
