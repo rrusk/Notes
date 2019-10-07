@@ -1,0 +1,122 @@
+These instructions are adequate for migrating an Ontario initialized
+OSCAR test database of moderate size for use as a BC OSCAR test
+database.
+
+First, create an empty OSCAR database.  We will call it 'oscar':
+
+mysql -uroot -p -e "CREATE DATABASE oscar CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI;"
+
+Load the Ontario database dump (assumed here to be named
+'oscar_on.sql' but it can be different):
+
+  mysql -uroot -p -f oscar < oscar_on.sql
+
+If the Ontario database doesn't have all patches applied up to the
+current date, then patches added since it was dumped should be applied
+before trying to build and deploy the latest version of Oscar.
+
+An easy way to do that is to get the latest Debian package from
+
+https://sourceforge.net/projects/oscarmcmaster/files/Oscar%20Debian%2BUbuntu%20deb%20Package/
+
+For instance, at the time of this writing (Aug 21, 2019):
+
+wget https://sourceforge.net/projects/oscarmcmaster/files/Oscar%20Debian%2BUbuntu%20deb%20Package/oscar_emr19RC2-9%7E1000.deb
+
+Extract the content of the Debian package into a subdirectory:
+
+mkdir ./debpkg
+cd debpkg
+ar -vx ../oscar_emr19RC2-9~1000.deb
+xz -d data.tar.xz
+tar xpf data.tar
+cd usr/share/oscar-emr
+
+You will find two files, patch1.sql and patch.sql.
+
+Apply patch1.sql after changing all instances of oscar_15 to oscar in
+the script:
+
+mysql -uroot -p -f oscar < patch1.sql
+
+(Ignore warnings about indexes that already exist and duplicate entries.)
+
+Then apply patch.sql
+
+mysql -uroot -p -f oscar < patch.sql
+
+That should apply all patches up to the date that the downloaded
+Debian package was created.
+
+At this point we should have an Ontario database consistent with the
+most recent version of the OSCAR source code.
+
+Not all OSCAR records are stored in the database, some are in the
+filesystem.  The oscar properties file in /usr/share/tomcat8 may have
+BASE_DOCUMENT_DIR defined.  Look for the last instance of that key in
+the properties file.  For instance, the Debian package adds:
+  BASE_DOCUMENT_DIR=/usr/share/oscar-emr/OscarDocument
+Another common location is /var/lib/tomcat[678]/webapps/OscarDocument.
+
+It is important to capture the contents of this folder and make it
+available on the server where the migrated BC database will be
+located.  Otherwise the database will refer to files that are not
+present in the filesystem.  The folder can be placed wherever
+convenient provided the location is configured in the oscar properties
+file.
+
+The new OSCAR installation will need a properties file.  An easy
+approach would be to copy the Ontario oscar properties file and use it
+on the BC server.  At the end of the properties file add
+
+billregion=BC
+lab.handler.PATHL7.enabled=true
+lab.handler.EXCELLERIS.enabled=true
+LAB_TYPE=PATHL7
+EXCELLERIS_LAB_TYPE=PATHL7
+PATHNET_LABS=yes
+HL7TEXT_LABS=yes
+SHOW_INDICATOR_DASHBOARD_NUMBERS=true
+
+Next setup the BC specific tables using scripts in the database folder
+of the OSCAR distribution.  Assuming the commands are issued from the
+oscar directory,
+
+mysql -uroot -p -f oscar < database/mysql/oscarinit_bc.sql 2>&1 | tee -a /tmp/db.log
+
+Then load BC specific initialization data from oscardata_bc.sql.
+Unfortunately, there are some primary key conflicts in the
+billingservice table between BC and ON specific initalization data.
+Replace the strings
+
+INSERT INTO billingservice
+
+with
+
+REPLACE INTO billingservice
+
+This change will allow the BC data to overwrite the ON data when there
+is a primary key conflict in the billingservice table.  REPLACE does
+the same as INSERT otherwise.
+
+This can be done using
+
+sed "s/INSERT INTO billingservice /REPLACE INTO billingservice /" database/mysql/oscardata_bc.sql  > /tmp/modified.sql
+
+Then load 'modified.sql'
+
+mysql -uroot -p -f oscar < /tmp/modified.sql 2>&1 | tee -a /tmp/db.log
+
+At this point the ON test database should be converted to a BC test
+database.  Additional test patients from
+https://github.com/rrusk/devops/blob/master/Scripts/patient_insert.sql
+can be added if desired.
+
+Also, the BC indicator templates can be added.
+
+
+
+
+
+
+

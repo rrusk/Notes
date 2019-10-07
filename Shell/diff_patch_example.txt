@@ -1,0 +1,5 @@
+# example for copying local server.xml configuration from tomcat7 to tomcat8
+# in /etc/tomcat7
+diff -Naur server.xml.original server.xml > /tmp/server.xml.patch
+# in /etc/tomcat8
+patch < /tmp/server.xml.patch

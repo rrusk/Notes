@@ -1,0 +1,35 @@
+
+bongzilla
+‎08-14-2019 10:21 AM
+
+# EDITED #
+
+I was asking help about Ubuntu 18.04.3 dont recognizing my external monitor.
+
+Solved with:
+
+https://github.com/kfechter/LegionY530Ubuntu/issues/32
+
+https://devtalk.nvidia.com/default/topic/1044770/hdmi-output-missing-in-xrandr-command-and-external-...
+
+Precisely  doing:
+
+sudo nano /lib/modprobe.d/nvidia-kms.conf
+
+And editing the line with:
+
+options nvidia-drm modeset=1
+
+To:
+
+options nvidia-drm modeset=0
+
+After that:
+
+sudo update-initramfs -u
+
+And reboot.
+
+ 
+
+Thank you @Fullmetal99012
