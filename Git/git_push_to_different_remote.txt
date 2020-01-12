@@ -1,0 +1,29 @@
+# From https://intellipaat.com/community/14398/git-push-to-different-remote-git-push-existing-repo-to-a-new-and-different-remote-repo-server
+
+answered Jul 24, 2019 by yeshwanth.intelli (42.7k points)
+
+You need to copy the repo to your git-hub and work on it for that follow the steps:
+
+Create a new repository in your github
+
+Then clone the repository which you need to work on from your hosted.org to the local machine
+
+Then rename the repo with upstream using:
+
+    git remote rename origin upstream 
+
+Then add your repository url to your remote using: 
+
+    git remote add origin <url>
+
+Then push the changes to your remote repo using: 
+
+    git push origin master
+
+From the above steps, you can copy repo to your github. 
+
+To get updated and to pull the changes you can do:
+
+    git pull upstream master && git push origin master
+
+This will pull the changes and keep you updated with your official repo.
