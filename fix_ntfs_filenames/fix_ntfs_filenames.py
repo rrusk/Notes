@@ -10,7 +10,7 @@ import sys
 if len(sys.argv) != 2:
     print()
     print("Usage:", sys.argv[0], "<directory>")
-    print("  where <directory> is the folder you want to check for filenames")
+    print("  where <directory> is the folder you want to check for file names")
     print("    and directory names that are not valid in an NTFS filesystem.")
     print("  Will check all files and directories in <directory> and its subdirectories.")
     print()
@@ -27,6 +27,9 @@ def __removeIllegalChars(name):
 
 # Set the path you want to check
 path = sys.argv[1]
+if not os.path.isdir(path):
+    print("Directory ["+path+"] does not exist.")
+    exit()
 
 # Check directory names for illegal characters
 for root, dirs, files in os.walk(path):
