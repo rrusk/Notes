@@ -1,0 +1,48 @@
+From https://askubuntu.com/questions/745218/ubuntu-wont-boot-because-of-lvmetad#:~:text=The%20Failed%20to%20connect%20to,some%20unneeded%20files%2C%20and%20reboot.&text=These%20are%20the%20commands%20that,booting%20from%20the%20USB%20drive.
+
+The Failed to connect to lvmetad error can happen because the disk is
+100% full. To fix this, boot from a USB thumb drive, mount the full
+disk, delete some unneeded files, and reboot. I also reinstalled the
+boot system - I don't know if that is necessary or not.
+
+These are the commands that resolved the problem for me, run from a
+terminal after booting from the USB drive. I have stock Ubuntu 18.04
+with full-drive encryption. YMMV.
+
+1. Mount the drive:
+
+sudo cryptsetup luksOpen /dev/sda5 sda5_crypt
+sudo vgscan --mknodes
+sudo vgchange -ay
+sudo mount /dev/mapper/ubuntu--vg-root /mnt
+
+2. Delete unneeded files (cd /mnt/home/your_username ... rm ...)
+
+3. (may not be necessary) reinstall the boot system:
+
+cd /mnt/
+sudo mount /dev/sda1 boot
+for d in dev sys proc run; do sudo mount --bind /$d $d; done
+sudo vi etc/crypttab # make sure first line uses "sda5_crypt"
+sudo chroot .
+update-grub
+grub-install /dev/sda
+update-initramfs -u -k all
+exit
+sudo umount dev sys proc run boot
+
+4. Unmount:
+
+cd /
+sudo umount /mnt
+sudo vgchange -an
+sudo cryptsetup close sda5_crypt
+
+5. Reboot:
+
+sudo reboot
+
+edited Mar 9 at 19:36 Pablo Bianchi
+
+answered Sep 14 '19 at 18:57 bitinerant
+

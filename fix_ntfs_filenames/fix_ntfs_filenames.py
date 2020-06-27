@@ -17,6 +17,7 @@ if len(sys.argv) != 2:
     exit()
 
 # From https://stackoverflow.com/questions/6745097/how-to-check-for-platform-incompatible-folder-file-names-in-python
+# Also https://docs.microsoft.com/en-ca/windows/win32/fileio/naming-a-file?redirectedfrom=MSDN#naming_conventions
 ILLEGAL_NTFS_CHARS = "[<>:/\\|?*\"]|[\0-\31]"
 
 
