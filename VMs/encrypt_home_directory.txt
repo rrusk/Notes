@@ -1,0 +1,19 @@
+From https://www.linuxuprising.com/2018/04/how-to-encrypt-home-folder-in-ubuntu.html
+
+sudo apt install ecryptfs-utils cryptsetup
+
+Create admin second admin user:
+sudo adduser <user2>
+sudo usermod -aG sudo <user2>
+
+Log out.  As second admin user:
+sudo ecryptfs-migrate-home -u <user1>
+
+Log out as <user2>
+Log in as <user1>
+
+Print and record recovery passphrase:
+
+ecryptfs-unwrap-passphrase
+
+Remove backup of unecrypted <user1> in /home/<user1>.xxxxxxxx
